@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас - Факты о России</title>
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <div class="header__left">
+                <a id= "logo" href="index.html"><span class="pink">Сайт</span> <i>визитка</i></a>
+            </div>
+            <div class="header__right">
+                <h1><a href="index.html">ГЛАВНАЯ</a></h1>
+            </div>
+        </header>
+        <main>
+            <h1 class="page-title">ИНТЕРЕСНЫЕ ФАКТЫ</h1>
+
+            <!-- Блок с гимном -->
+            <div class="hymn-block">
+                <h2 class="hymn-title">ГИМН РОССИИ</h2>
+    
+                <!-- Кнопка для воспроизведения/паузы -->
+                <button class="hymn-button" id="playPauseBtn">
+                    <span class="play-icon">▶</span> ПРОСЛУШАТЬ ГИМН
+                </button>
+    
+                <!-- Аудио элемент -->
+                <audio id="hymnAudio" src="content/gimn.mp3" preload="auto"></audio>
+            </div>
+            <section class="services clearfix">
+                <!-- карточки с фактами -->
+                <article class="services__item">
+                    <img src="content/1.jpg" class="services__img" alt="Москва">
+                    <h2>Факт 1</h2>
+                    <p>Москва — столица России, крупнейший город страны. Известна Кремлём, Красной площадью и Большим театром. Современный мегаполис с богатой историей и развитой инфраструктурой.</p>
+                </article>
+
+                <article class="services__item">
+                    <img src="content/2.jpg" class="services__img" alt="Сердце России">
+                    <h2>Факт 2</h2>
+                    <p>Сердце России — Москва. Здесь сосредоточены главные достопримечательности: Кремль, Новодевичий монастырь, Москва‑Сити. Город сочетает старину и современность, привлекая миллионы туристов.</p>
+                </article>
+                
+                <article class="services__item">
+                    <img src="content/3.jpg" class="services__img" alt="Культурный центр">
+                    <h2>Факт 3</h2>
+                    <p>Москва — политический и культурный центр России. От Кремля до Москва‑Сити: город хранит историю и стремится в будущее. Здесь всегда есть что посмотреть и чем удивить гостей.</p>
+                </article>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        &copy; Новая компания
+    </footer>
+
+    <script>
+        const btn = document.getElementById('playPauseBtn');
+        const audio = document.getElementById('hymnAudio');
+        const icon = btn.querySelector('.play-icon');
+        let isPlaying = false;
+
+        btn.addEventListener('click', function() {
+            if (isPlaying) {
+                audio.pause();
+                icon.textContent = '▶';  // Меняем только иконку
+                btn.classList.remove('playing');
+            } 
+            else {
+                audio.play();
+                icon.textContent = '⏸';  // Меняем только иконку
+                btn.classList.add('playing');
+            }
+            isPlaying = !isPlaying;
+        });
+
+        audio.addEventListener('ended', function() {
+            isPlaying = false;
+            icon.textContent = '▶';
+            btn.classList.remove('playing');
+        });
+    </script>
+
+</body>
+</html>

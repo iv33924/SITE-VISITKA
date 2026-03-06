@@ -1,0 +1,459 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Подключаем красивые шрифты */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700;900&display=swap');
+
+html, body {
+    background: linear-gradient(180deg, 
+        #FFFFFF 0%, 
+        #FFFFFF 33%, 
+        #0039A6 33%, 
+        #0039A6 66%, 
+        #D52B1E 66%, 
+        #D52B1E 100%);
+    color: black;
+    height: 100%;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+#wrapper {
+    height: 100vh;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+header, main, footer {
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+main {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+    padding: 10px 20px;
+    scrollbar-width: thin;
+    scrollbar-color: #0039A6 rgba(255, 255, 255, 0.5);
+}
+
+/* Стилизация скроллбара для WebKit браузеров */
+main::-webkit-scrollbar {
+    width: 8px;
+}
+
+main::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+main::-webkit-scrollbar-thumb {
+    background: #0039A6;
+    border-radius: 10px;
+}
+
+footer {
+    height: 80px;
+    flex-shrink: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    padding: 25px 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px 15px 0 0;
+}
+
+/* ========== ОБЩИЕ СТИЛИ ДЛЯ ЗАГОЛОВКОВ ========== */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    text-align: center;
+    color: #0039A6;
+    text-shadow: 3px 3px 6px rgba(0,57,166,0.3);
+    letter-spacing: 2px;
+    position: relative;
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 150px;
+    height: 4px;
+    background: linear-gradient(90deg, #FFFFFF, #0039A6, #D52B1E);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* ========== СТИЛИ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ (index.html) ========== */
+main > h1 {
+    font-size: 56px;
+    margin: 15px 0 20px 0;
+}
+
+.main__content {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    margin: 10px 0 20px 0;
+}
+
+.main__content p {
+    text-align: justify;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.7;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+    color: #222;
+    letter-spacing: 0.3px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.main__content p:last-child {
+    margin-bottom: 0;
+}
+
+.content__img {
+    width: 260px;
+    height: auto;
+    float: left;
+    margin: 0 25px 15px 0;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border: 3px solid white;
+}
+
+/* ========== СТИЛИ ДЛЯ СТРАНИЦЫ ФАКТОВ (uslugi.html) ========== */
+.page-title {
+    font-size: 48px;
+    margin: 15px 0 10px 0;
+}
+
+.services {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    padding: 0;
+}
+
+.services__item {
+    width: 300px;
+    flex: 0 0 auto;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.services__item:hover {
+    transform: translateY(-5px);
+}
+
+.services__img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 12px;
+    border: 3px solid white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.services__item h2 {
+    font-size: 24px;
+    font-family: 'Playfair Display', serif;
+    color: #D52B1E;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.services__item p {
+    font-size: 18px;
+    line-height: 1.6;
+    font-family: 'Roboto Slab', serif;
+    color: #222;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.services__item p:last-of-type {
+    margin-bottom: 0;
+}
+
+.more-link {
+    display: inline-block;
+    text-decoration: none;
+    color: #0039A6;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 5px 15px;
+    border: 2px solid #0039A6;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+    align-self: center;
+}
+
+.more-link:hover {
+    background-color: #0039A6;
+    color: white;
+}
+
+/* ========== СТИЛИ ДЛЯ ИЗОБРАЖЕНИЙ ========== */
+.main__img--float {
+    width: 550px;
+    margin: 20px 40px 20px 0;
+    float: left;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* ========== АДАПТИВНОСТЬ ДЛЯ МАЛЕНЬКИХ ЭКРАНОВ ========== */
+@media (max-width: 1000px) {
+    header, main, footer {
+        padding: 0 15px;
+    }
+    
+    .services {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .services__item {
+        width: 280px;
+    }
+    
+    .content__img {
+        width: 200px;
+    }
+    
+    main > h1 {
+        font-size: 42px;
+    }
+    
+    .page-title {
+        font-size: 38px;
+    }
+}
+
+@media (max-width: 700px) {
+    .content__img {
+        width: 100%;
+        float: none;
+        margin: 0 0 15px 0;
+    }
+    
+    .services__item {
+        width: 100%;
+        max-width: 350px;
+    }
+    
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+        gap: 10px;
+    }
+}
+
+/* Очистка float */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* ========== ПРИНУДИТЕЛЬНОЕ ВЫРАВНИВАНИЕ ШАПКИ ========== */
+header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    height: 100px !important;
+    width: 100% !important;
+    max-width: 1040px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+}
+
+.header__left {
+    font-size: 20px !important;
+    font-weight: bold !important;
+    color: #333 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    white-space: nowrap !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: auto !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+.header__right {
+    width: auto !important;
+    text-align: right !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+}
+
+.header__right h1 {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 20px !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+.header__right h1::after {
+    display: none !important;
+}
+
+.header__right a {
+    text-decoration: none !important;
+    color: #333 !important;
+    padding: 8px 20px !important;
+    border: 2px solid #333 !important;
+    border-radius: 5px !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 20px !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    background: transparent !important;
+}
+
+.header__right a:hover {
+    background-color: #333 !important;
+    color: #fff !important;
+}
+
+/* ========== БЕГУЩАЯ СТРОКА С ГИМНОМ ========== */
+.hymn-ticker {
+    width: 100%;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 3px solid;
+    border-image: linear-gradient(90deg, #FFFFFF, #0039A6, #D52B1E) 1;
+    border-radius: 15px;
+    margin: 15px 0 20px 0;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.hymn-content {
+    position: absolute;
+    white-space: nowrap;
+    line-height: 60px;
+    font-size: 20px;
+    font-family: 'Roboto Slab', serif;
+    color: #0039A6;
+    font-weight: 500;
+    animation: scrollHymn 60s linear infinite !important;
+    padding-left: 100%;
+}
+
+@keyframes scrollHymn {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* ========== БЛОК С ГИМНОМ ========== */
+.hymn-block {
+    width: 100%;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.hymn-title {
+    font-size: 32px;
+    font-family: 'Playfair Display', serif;
+    color: #0039A6;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,57,166,0.2);
+}
+
+/* Кнопка */
+.hymn-button {
+    background: linear-gradient(90deg, #FFFFFF, #0039A6, #D52B1E);
+    color: black;
+    border: 2px solid black;
+    border-radius: 50px;
+    padding: 15px 40px;
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    min-width: 350px;  /* Фиксированная минимальная ширина кнопки */
+    text-align: center; /* Текст по центру */
+}
+
+.hymn-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+
+.play-icon {
+    display: inline-block;
+    width: 30px;        /* Фиксированная ширина для иконки */
+    text-align: center; /* Выравнивание по центру */
+    margin-right: 10px;
+    font-size: 28px;
+}
+
+.hymn-button.playing {
+    background: linear-gradient(90deg, #FFFFFF, #0039A6, #D52B1E);
+    color: black;
+    border: 2px solid black;
+}
+
+#logo{
+    text-transform: uppercase;
+    text-decoration:none;
+    color:black;
+    font-weight: 600;
+    line-height: 100px;
+    font-size: 20px;
+}
+
+.pink {
+    color: #0039A6; 
+}
+
+
