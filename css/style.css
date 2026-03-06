@@ -501,6 +501,20 @@ header {
     display: inline-block;
 }
 
+/* .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 220px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1000;
+    margin-top: 5px;
+} */
+
 .dropdown-content {
     display: none;
     position: absolute;
@@ -513,6 +527,18 @@ header {
     overflow: hidden;
     z-index: 1000;
     margin-top: 5px;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: transparent;
 }
 
 .dropdown:hover .dropdown-content {

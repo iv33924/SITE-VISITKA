@@ -54,6 +54,50 @@
         <footer>
             &copy; Новая компания
         </footer>
+
+
+        <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdown = document.querySelector('.dropdown');
+    const dropdownContent = document.querySelector('.dropdown-content');
+    let hideTimeout;
+    
+    if (dropdown && dropdownContent) {
+        // При наведении на dropdown или его содержимое - отменяем скрытие
+        dropdown.addEventListener('mouseenter', function() {
+            clearTimeout(hideTimeout);
+            dropdownContent.style.display = 'block';
+            setTimeout(() => {
+                dropdownContent.style.opacity = '1';
+            }, 10);
+        });
+        
+        dropdown.addEventListener('mouseleave', function() {
+            // Даем 300мс на перемещение курсора к меню
+            hideTimeout = setTimeout(function() {
+                dropdownContent.style.opacity = '0';
+                setTimeout(() => {
+                    dropdownContent.style.display = 'none';
+                }, 200);
+            }, 300);
+        });
+        
+        // Если курсор задержался на самом меню - не скрываем
+        dropdownContent.addEventListener('mouseenter', function() {
+            clearTimeout(hideTimeout);
+        });
+        
+        dropdownContent.addEventListener('mouseleave', function() {
+            hideTimeout = setTimeout(function() {
+                dropdownContent.style.opacity = '0';
+                setTimeout(() => {
+                    dropdownContent.style.display = 'none';
+                }, 200);
+            }, 300);
+        });
+    }
+});
+</script>
     </body>
 
 </html>
