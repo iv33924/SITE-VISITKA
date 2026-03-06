@@ -456,4 +456,126 @@ header {
     color: #0039A6; 
 }
 
+/* Стили для навигационного меню */
+.main-nav {
+    background-color: #2c3e50;
+    padding: 15px 0;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    z-index: 100;
+}
 
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+.nav-links a:hover {
+    background-color: #34495e;
+}
+
+/* Стили для выпадающего меню */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 220px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1000;
+    margin-top: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Стили для вкладок внутри выпадающего меню */
+.tab-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.tab {
+    padding: 12px 20px;
+    text-align: left;
+    background: none;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    transition: background-color 0.3s;
+    border-bottom: 1px solid #eee;
+    font-family: inherit;
+}
+
+.tab:last-child {
+    border-bottom: none;
+}
+
+.tab:hover {
+    background-color: #f0f0f0;
+    color: #e74c3c;
+}
+
+/* Стили для активного состояния */
+.nav-links .active {
+    background-color: #e74c3c;
+}
+
+.nav-links .active:hover {
+    background-color: #c0392b;
+}
+
+/* Основной контент (может уже быть в вашем CSS) */
+.content {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    font-size: 48px;
+    margin-top: 0;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #e74c3c;
+    padding-bottom: 15px;
+}
+
+p {
+    margin-bottom: 20px;
+    text-align: justify;
+}
