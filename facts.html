@@ -12,6 +12,29 @@
             <div class="header__left">
                 <a id= "logo" href="index.html"><span class="pink">Сайт</span> <i>визитка</i></a>
             </div>
+
+
+            <div class="header__right">
+
+                    
+                    <nav class="main-nav">
+        <ul class="nav-links">
+            <li class="dropdown">
+                <a href="#" class="dropbtn" id="dropdownBtn">КАТАЛОГ</a>
+            <div class="dropdown-content" id="dropdownMenu">
+                <div class="tab-container">
+                    <button class="tab" onclick="navigateTo('putin.html')">ПУТИН</button>
+<button class="tab" onclick="navigateTo('facts.html')">ИНТЕРЕСНЫЕ ФАКТЫ</button>
+<button class="tab" onclick="navigateTo('auto_industry.html')">АВТОПРОМ</button>
+<button class="tab" onclick="navigateTo('oreshnik.html')">ОРЕШНИК</button>
+                </div>
+            </div>
+            </li>
+        </ul>
+    </nav>
+                </div>
+
+                
             <div class="header__right">
                 <h1><a href="index.html">ГЛАВНАЯ</a></h1>
             </div>
@@ -83,7 +106,64 @@
             icon.textContent = '▶';
             btn.classList.remove('playing');
         });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdownBtn = document.getElementById('dropdownBtn');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    
+    // Функция для закрытия меню
+    function closeDropdown() {
+        dropdownMenu.classList.remove('show');
+        dropdownBtn.classList.remove('active');
+    }
+    
+    // Функция для открытия меню
+    function openDropdown() {
+        dropdownMenu.classList.add('show');
+        dropdownBtn.classList.add('active');
+    }
+    
+    // Обработчик клика по кнопке
+    dropdownBtn.addEventListener('click', function(event) {
+        event.preventDefault(); // Предотвращаем переход по ссылке
+        event.stopPropagation(); // Останавливаем всплытие события
+        
+        // Если меню открыто - закрываем, если закрыто - открываем
+        if (dropdownMenu.classList.contains('show')) {
+            closeDropdown();
+        } else {
+            openDropdown();
+        }
+    });
+    
+    // Закрытие при клике вне меню
+    document.addEventListener('click', function(event) {
+        // Если клик был не по кнопке и не по меню
+        if (!dropdownBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            closeDropdown();
+        }
+    });
+    
+    // Закрытие при нажатии клавиши Escape
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeDropdown();
+        }
+    });
+    
+    // Предотвращаем закрытие при клике внутри меню (кроме кнопок вкладок)
+    dropdownMenu.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+
+    // Функция для перехода на страницу с закрытием меню
+window.navigateTo = function(page) {
+    location.href = page;
+    closeDropdown();
+}
+});
     </script>
+    
 
 </body>
 </html>
