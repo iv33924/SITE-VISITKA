@@ -30,6 +30,8 @@
             </li>
         </ul>
     </nav>
+
+
                 </div>
         </header>
 
@@ -91,5 +93,62 @@
     <footer>
         &copy; Новая компания
     </footer>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdownBtn = document.getElementById('dropdownBtn');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    
+    // Функция для закрытия меню
+    function closeDropdown() {
+        dropdownMenu.classList.remove('show');
+        dropdownBtn.classList.remove('active');
+    }
+    
+    // Функция для открытия меню
+    function openDropdown() {
+        dropdownMenu.classList.add('show');
+        dropdownBtn.classList.add('active');
+    }
+    
+    // Обработчик клика по кнопке
+    dropdownBtn.addEventListener('click', function(event) {
+        event.preventDefault(); // Предотвращаем переход по ссылке
+        event.stopPropagation(); // Останавливаем всплытие события
+        
+        // Если меню открыто - закрываем, если закрыто - открываем
+        if (dropdownMenu.classList.contains('show')) {
+            closeDropdown();
+        } else {
+            openDropdown();
+        }
+    });
+    
+    // Закрытие при клике вне меню
+    document.addEventListener('click', function(event) {
+        // Если клик был не по кнопке и не по меню
+        if (!dropdownBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            closeDropdown();
+        }
+    });
+    
+    // Закрытие при нажатии клавиши Escape
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeDropdown();
+        }
+    });
+    
+    // Предотвращаем закрытие при клике внутри меню (кроме кнопок вкладок)
+    dropdownMenu.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+
+    // Функция для перехода на страницу с закрытием меню
+window.navigateTo = function(page) {
+    location.href = page;
+    closeDropdown();
+}
+});
+</script>
 </body>
 </html>
