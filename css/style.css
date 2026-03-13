@@ -551,24 +551,106 @@ header {
 
 /* ========== СТИЛИ ДЛЯ СТРАНИЦЫ ПУТИНА (putin.html) ========== */
 
-.putin-content {
+/* Специальные стили для main на странице Путина */
+.putin-main {
     display: flex;
-    gap: 40px;
-    margin: 30px 0 20px 0;
+    flex-direction: column;
+    height: calc(100vh - 180px); /* 100vh минус высота header и footer */
+    padding: 10px 20px !important;
+    overflow: hidden; /* Убираем прокрутку */
+}
+
+/* Заголовок на странице Путина */
+.putin-title {
+    font-size: 42px !important;
+    margin: 5px 0 15px 0 !important;
+    flex-shrink: 0;
+}
+
+/* Основной контейнер для текста и гифки */
+.putin-container {
+    display: flex;
+    gap: 30px;
+    flex: 1;
+    min-height: 0; /* Важно для flex-контейнера */
     background: rgba(255, 255, 255, 0.85);
     border-radius: 30px;
-    padding: 30px;
+    padding: 25px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
     backdrop-filter: blur(5px);
 }
 
-/* Левая колонка с гифкой */
-.putin-left {
-    flex: 0 0 40%;
+/* Левая колонка с текстом */
+.putin-text-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto; /* Текст может прокручиваться внутри колонки если нужно */
+    padding-right: 5px;
 }
 
-.putin-image-container {
+/* Стилизация скроллбара для текстовой колонки */
+.putin-text-column::-webkit-scrollbar {
+    width: 5px;
+}
+
+.putin-text-column::-webkit-scrollbar-track {
+    background: rgba(0, 57, 166, 0.1);
+    border-radius: 10px;
+}
+
+.putin-text-column::-webkit-scrollbar-thumb {
+    background: #0039A6;
+    border-radius: 10px;
+}
+
+/* Абзацы текста */
+.putin-paragraph {
+    font-family: 'Roboto Slab', serif;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #222;
+    text-align: justify;
+    margin: 0;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    border-left: 4px solid transparent;
+    transition: all 0.2s ease;
+}
+
+/* Цветные границы для абзацев */
+.putin-paragraph:nth-child(1) {
+    border-left-color: #0039A6;
+}
+
+.putin-paragraph:nth-child(2) {
+    border-left-color: #D52B1E;
+}
+
+.putin-paragraph:nth-child(3) {
+    border-left-color: #0039A6;
+}
+
+/* Эффект при наведении */
+.putin-paragraph:hover {
+    background: white;
+    transform: translateX(3px);
+    box-shadow: 0 3px 8px rgba(0,57,166,0.15);
+}
+
+/* Правая колонка с гифкой */
+.putin-gif-column {
+    flex: 0 0 45%; /* Фиксированная ширина 45% */
+    display: flex;
+    align-items: center;
+}
+
+.putin-gif-container {
     width: 100%;
+    height: 100%;
+    max-height: 100%;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 20px 30px rgba(0,57,166,0.3);
@@ -576,131 +658,79 @@ header {
     transition: transform 0.3s ease;
 }
 
-.putin-image-container:hover {
+.putin-gif-container:hover {
     transform: scale(1.02);
 }
 
 .putin-gif {
     width: 100%;
-    height: 400px;
+    height: 100%;
     object-fit: cover;
-    object-position: center 20%;
+    object-position: center;
     display: block;
 }
 
-/* Правая колонка с текстом */
-.putin-right {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.putin-text {
-    font-family: 'Roboto Slab', serif;
-    font-size: 16px;
-    line-height: 1.8;
-    color: #222;
-    text-align: justify;
-    margin: 0;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 15px;
-    transition: all 0.3s ease;
-    border-left: 4px solid transparent;
-}
-
-/* Чередование отступов для абзацев */
-.putin-text:nth-child(1) {
-    border-left-color: #0039A6;
-}
-
-.putin-text:nth-child(2) {
-    border-left-color: #D52B1E;
-    margin-left: 10px;
-}
-
-.putin-text:nth-child(3) {
-    border-left-color: #0039A6;
-    margin-left: 20px;
-}
-
-/* Эффект при наведении на абзац */
-.putin-text:hover {
-    background: white;
-    transform: translateX(5px);
-    box-shadow: 0 5px 15px rgba(0,57,166,0.2);
-}
-
-/* Декоративный разделитель */
-.putin-divider {
-    text-align: center;
-    margin: 30px 0 20px 0;
-    opacity: 0.7;
-}
-
-.divider-star {
-    display: inline-block;
-    font-size: 24px;
-    color: #D52B1E;
-    margin: 0 10px;
-    animation: pulse 2s infinite;
-}
-
-.divider-star:nth-child(2) {
-    animation-delay: 0.3s;
-    color: #0039A6;
-}
-
-.divider-star:nth-child(3) {
-    animation-delay: 0.6s;
-}
-
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-        opacity: 0.7;
-    }
-    50% {
-        transform: scale(1.2);
-        opacity: 1;
+/* Тонкая настройка для разных соотношений сторон гифки */
+@supports (object-fit: cover) {
+    .putin-gif {
+        object-fit: cover;
     }
 }
 
-/* Адаптивность для планшетов */
-@media (max-width: 900px) {
-    .putin-content {
-        flex-direction: column;
-        gap: 25px;
+/* Адаптивность для экранов меньше 1000px */
+@media (max-width: 1000px) {
+    .putin-main {
+        height: calc(100vh - 160px);
+        padding: 5px 15px !important;
+    }
+    
+    .putin-title {
+        font-size: 36px !important;
+        margin: 5px 0 10px 0 !important;
+    }
+    
+    .putin-container {
         padding: 20px;
+        gap: 20px;
     }
     
-    .putin-left {
-        flex: 0 0 100%;
+    .putin-gif-column {
+        flex: 0 0 42%;
     }
     
-    .putin-gif {
-        height: 350px;
-    }
-    
-    .putin-text:nth-child(2),
-    .putin-text:nth-child(3) {
-        margin-left: 0;
+    .putin-paragraph {
+        font-size: 14px;
+        padding: 10px 12px;
     }
 }
 
-/* Адаптивность для мобильных */
-@media (max-width: 600px) {
-    .putin-content {
-        padding: 15px;
+/* Адаптивность для экранов меньше 800px */
+@media (max-width: 800px) {
+    .putin-main {
+        height: auto;
+        min-height: calc(100vh - 160px);
+        overflow-y: auto;
     }
     
-    .putin-gif {
+    .putin-container {
+        flex-direction: column-reverse; /* На мобильных гифка сверху, текст снизу */
+    }
+    
+    .putin-gif-column {
+        flex: 0 0 auto;
         height: 250px;
     }
     
-    .putin-text {
-        font-size: 15px;
-        padding: 12px;
+    .putin-text-column {
+        max-height: 400px;
+    }
+}
+
+/* Для очень высоких экранов */
+@media (min-height: 900px) {
+    .putin-paragraph {
+        font-size: 16px;
+        line-height: 1.6;
+        padding: 15px 18px;
     }
 }
