@@ -768,6 +768,16 @@ header {
     padding: 0;
 }
 
+.nav-links li a,
+.nav-links li .dropbtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 120px; /* Фиксированная ширина для обеих кнопок */
+    padding: 10px 0; /* Горизонтальный padding убираем, так как ширина фиксирована */
+    box-sizing: border-box;
+}
 .nav-links li {
     display: flex;
     align-items: center;
