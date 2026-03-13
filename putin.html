@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="ru">
 <head>
     <link rel="stylesheet" href="css/style.css">
@@ -38,20 +38,20 @@
         <main>
             <h1 class="page-title">ВЛАДИМИР ПУТИН</h1>
 
-            <!-- Блок с описанием -->
+            Блок с описанием -->
             <!-- <div class="gallery-description">
                 <p>Красота России в четырех фотографиях — от западных границ до восточных берегов.</p>
             </div> -->
 
             <!-- Галерея из 4 картинок -->
-            <section class="gallery-section">
+            <!-- <section class="gallery-section">
                 <div class="gallery-grid">
                     
                     <div class="gallery-item">
                         <img src="content/putin.gif" alt="Красота России" class="gallery-img">
                         <div class="gallery-caption">
-                            <!-- <h3>Озеро Байкал</h3> -->
-                            <p>Владимир Владимирович Путин — российский государственный и политический деятель, действующий Президент Российской Федерации. Он родился 7 октября 1952 года в Ленинграде (ныне Санкт-Петербург). В 1975 году окончил юридический факультет Ленинградского государственного университета, после чего был направлен на службу в Комитет государственной безопасности (КГБ), где проработал до 1991 года.</p>
+                            <h3>Озеро Байкал</h3> -->
+                            <!-- <p>Владимир Владимирович Путин — российский государственный и политический деятель, действующий Президент Российской Федерации. Он родился 7 октября 1952 года в Ленинграде (ныне Санкт-Петербург). В 1975 году окончил юридический факультет Ленинградского государственного университета, после чего был направлен на службу в Комитет государственной безопасности (КГБ), где проработал до 1991 года.</p>
 
                             <p>Политическая карьера Путина началась в начале 1990-х годов в команде мэра Санкт-Петербурга Анатолия Собчака. В 1996 году он переехал в Москву и быстро поднялся по карьерной лестнице: от заместителя управляющего делами Президента до директора Федеральной службы безопасности. В августе 1999 года был назначен Председателем Правительства РФ, а 31 декабря 1999 года, после отставки Бориса Ельцина, стал исполняющим обязанности Президента.</p>
 
@@ -59,7 +59,7 @@
                         </div>
                     </div>
 
-                    <!-- <div class="gallery-item">
+                    <div class="gallery-item">
                         <img src="content/gallery2.jpg" alt="Красота России" class="gallery-img">
                         <div class="gallery-caption">
                             <h3>Горы Алтая</h3>
@@ -83,15 +83,15 @@
                         </div>
                     </div> -->
 
-                </div>
+                <!-- </div>
             </section>
 
-            <!-- Дополнительный текст -->
+             Дополнительный текст -->
             <!-- <div class="gallery-footer">
                 <p>Каждый уголок нашей страны уникален и прекрасен по-своему. Приглашаем вас в путешествие!</p>
             </div> -->
 
-        </main>
+        <!--</main>
     </div>
 
     <footer>
@@ -154,5 +154,171 @@ window.navigateTo = function(page) {
 }
 });
 </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Владимир Путин - Президент России</title>
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <div class="header__left">
+                <a id="logo" href="index.html"><span class="pink">Сайт</span> <i>визитка</i></a>
+            </div>
+            <div class="header__right">
+                <nav class="main-nav">
+                    <ul class="nav-links">
+                        <li class="dropdown">
+                            <a href="#" class="dropbtn" id="dropdownBtn">КАТАЛОГ</a>
+                            <div class="dropdown-content" id="dropdownMenu">
+                                <div class="tab-container">
+                                    <button class="tab" onclick="navigateTo('putin.html')">ПРЕЗИДЕНТ</button>
+                                    <button class="tab" onclick="navigateTo('facts.html')">ИНТЕРЕСНЫЕ ФАКТЫ</button>
+                                    <button class="tab" onclick="navigateTo('auto_industry.html')">АВТОПРОМ</button>
+                                    <button class="tab" onclick="navigateTo('oreshnik.html')">ОРЕШНИК</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <h1 class="page-title">ВЛАДИМИР ВЛАДИМИРОВИЧ ПУТИН</h1>
+            
+            <!-- Геройский блок с гифкой и краткой информацией -->
+            <div class="hero-section">
+                <div class="hero-image">
+                    <img src="putin.gif" alt="Владимир Путин" class="president-gif">
+                </div>
+                <div class="hero-quote">
+                    <blockquote>
+                        "Быть президентом — это судьба, это ответственность перед страной и народом."
+                    </blockquote>
+                    <p class="quote-author">— В.В. Путин</p>
+                </div>
+            </div>
+
+            <!-- Основная биография в две колонки -->
+            <div class="bio-section">
+                <div class="bio-column">
+                    <h2>Детство и образование</h2>
+                    <p>Владимир Владимирович Путин родился 7 октября 1952 года в Ленинграде (ныне Санкт-Петербург). В 1975 году окончил юридический факультет Ленинградского государственного университета. Еще в университете вступил в КПСС и оставался членом партии до её запрета в 1991 году.</p>
+                    <p>После окончания университета был направлен на службу в Комитет государственной безопасности (КГБ), где проработал до 1991 года. Владеет немецким и английским языками.</p>
+                </div>
+                
+                <div class="bio-column">
+                    <h2>Начало карьеры</h2>
+                    <p>Политическая карьера Путина началась в начале 1990-х годов в команде мэра Санкт-Петербурга Анатолия Собчака. В 1996 году переехал в Москву и быстро поднялся по карьерной лестнице: от заместителя управляющего делами Президента до директора Федеральной службы безопасности (ФСБ).</p>
+                    <p>В августе 1999 года был назначен Председателем Правительства РФ, а 31 декабря 1999 года, после отставки Бориса Ельцина, стал исполняющим обязанности Президента.</p>
+                </div>
+            </div>
+
+            <!-- Президентство в три колонки -->
+            <div class="presidency-section">
+                <h2>Президентство и достижения</h2>
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <div class="achievement-year">2000-2008</div>
+                        <h3>Первый и второй сроки</h3>
+                        <p>Впервые избран Президентом в марте 2000 года. Период характеризовался укреплением вертикали власти, экономическим ростом и повышением уровня жизни.</p>
+                    </div>
+                    
+                    <div class="achievement-card">
+                        <div class="achievement-year">2008-2012</div>
+                        <h3>Пост премьер-министра</h3>
+                        <p>Занимал пост Председателя Правительства, продолжая оказывать значительное влияние на политику страны. В этот период были внесены поправки в Конституцию.</p>
+                    </div>
+                    
+                    <div class="achievement-card">
+                        <div class="achievement-year">2012-н.в.</div>
+                        <h3>Третий и четвертый сроки</h3>
+                        <p>Вновь избран Президентом в 2012 и 2018 годах. Этот период отмечен усилением роли России на международной арене и реализацией крупных национальных проектов.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Интересные факты в виде списка -->
+            <div class="facts-section">
+                <h2>Интересные факты</h2>
+                <ul class="facts-list">
+                    <li>Владимир Путин имеет черный пояс по дзюдо и является мастером спорта по самбо</li>
+                    <li>Владеет немецким языком на уровне, достаточном для проведения переговоров</li>
+                    <li>Любит животных, особенно собак — у него были лабрадор Кони, болгарская овчарка Баффи и другие</li>
+                    <li>Играет на фортепиано и поет (исполнил песню "Blueberry Hill" на благотворительном вечере)</li>
+                    <li>Принимал участие в научных экспедициях: погружался на дно Байкала на глубоководном аппарате "Мир"</li>
+                    <li>Управлял самолетом при тушении лесных пожаров и пилотировал дельтаплан с журавлями</li>
+                </ul>
+            </div>
+
+            <!-- Бегущая строка с гимном (как на главной) -->
+            <div class="hymn-ticker">
+                <div class="hymn-content">
+                    Россия — священная наша держава, Россия — любимая наша страна. Могучая воля, великая слава — Твоё достоянье на все времена! Славься, Отечество наше свободное, Братских народов союз вековой, Предками данная мудрость народная! Славься, страна! Мы гордимся тобой!
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        &copy; Новая компания
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropdownBtn = document.getElementById('dropdownBtn');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        
+        function closeDropdown() {
+            dropdownMenu.classList.remove('show');
+            dropdownBtn.classList.remove('active');
+        }
+        
+        function openDropdown() {
+            dropdownMenu.classList.add('show');
+            dropdownBtn.classList.add('active');
+        }
+        
+        dropdownBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            if (dropdownMenu.classList.contains('show')) {
+                closeDropdown();
+            } else {
+                openDropdown();
+            }
+        });
+        
+        document.addEventListener('click', function(event) {
+            if (!dropdownBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                closeDropdown();
+            }
+        });
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeDropdown();
+            }
+        });
+        
+        dropdownMenu.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+        
+        window.navigateTo = function(page) {
+            location.href = page;
+            closeDropdown();
+        }
+    });
+    </script>
 </body>
 </html>
