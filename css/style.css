@@ -734,3 +734,66 @@ header {
         padding: 15px 18px;
     }
 }
+
+/* Единый стиль для всех кнопок навигации */
+.nav-link, .dropbtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px; /* Фиксированная высота для всех кнопок */
+    line-height: 40px; /* Одинаковая высота строки */
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 0 15px; /* Убираем вертикальные padding, используем height */
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+/* Стили для навигационного списка */
+.nav-links {
+    display: flex;
+    align-items: center; /* Выравнивание по вертикали */
+    justify-content: center;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+/* Ховер эффекты */
+.nav-link:hover, .dropbtn:hover {
+    background-color: #34495e;
+}
+
+/* Активное состояние для dropbtn */
+.dropbtn.active {
+    background-color: #e74c3c;
+}
+
+/* Обновляем существующие стили, чтобы не было конфликтов */
+.main-nav {
+    background-color: #2c3e50;
+    padding: 0; /* Убираем вертикальные padding */
+    height: 60px; /* Фиксированная высота навбара */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 100;
+}
