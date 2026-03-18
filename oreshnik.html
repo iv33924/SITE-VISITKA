@@ -12,7 +12,7 @@
             flex-direction: column;
             height: calc(100vh - 180px);
             padding: 10px 20px !important;
-            overflow: hidden;
+            overflow-y: auto; /* Прокрутка теперь здесь, на главном контейнере */
         }
 
         /* Заголовок как на других страницах */
@@ -27,30 +27,14 @@
             display: flex;
             flex-direction: column;
             gap: 25px;
-            flex: 1;
-            min-height: 0;
+            /* Убрали flex: 1 и min-height, чтобы контейнер занимал столько, сколько нужно */
             background: rgba(255, 255, 255, 0.9);
             border-radius: 30px;
             padding: 25px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.25);
             backdrop-filter: blur(5px);
             border: 1px solid rgba(255,255,255,0.3);
-            overflow-y: auto;
-        }
-
-        /* Стилизация скроллбара */
-        .oreshnik-container::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .oreshnik-container::-webkit-scrollbar-track {
-            background: rgba(0, 57, 166, 0.1);
-            border-radius: 10px;
-        }
-
-        .oreshnik-container::-webkit-scrollbar-thumb {
-            background: #0039A6;
-            border-radius: 10px;
+            /* Убираем overflow-y */
         }
 
         /* Верхний блок с картинкой и характеристиками */
@@ -58,7 +42,6 @@
             display: flex;
             gap: 25px;
             width: 100%;
-            margin-bottom: 10px;
             flex-shrink: 0;
         }
 
@@ -91,18 +74,6 @@
             object-fit: cover;
             object-position: center;
             display: block;
-        }
-
-        .image-caption {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 14px;
-            color: #666;
-            text-align: center;
-            font-style: italic;
-            background: rgba(255,255,255,0.7);
-            padding: 8px 15px;
-            border-radius: 30px;
-            border-left: 4px solid #D52B1E;
         }
 
         /* Блок с характеристиками */
@@ -160,48 +131,15 @@
             color: #888;
         }
 
-        .strategic-badge {
-            display: inline-block;
-            background: linear-gradient(90deg, #0039A6, #D52B1E);
-            color: white;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 12px;
-            font-weight: 700;
-            padding: 5px 15px;
-            border-radius: 50px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            align-self: flex-start;
-            margin-top: 5px;
-        }
-
         /* Нижний блок с основным текстом */
         .oreshnik-text-block {
             width: 100%;
-            flex: 1;
-            min-height: 0;
-            overflow-y: auto;
-            padding-right: 5px;
-        }
-
-        /* Стилизация скроллбара для текста */
-        .oreshnik-text-block::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .oreshnik-text-block::-webkit-scrollbar-track {
-            background: rgba(0, 57, 166, 0.1);
-            border-radius: 10px;
-        }
-
-        .oreshnik-text-block::-webkit-scrollbar-thumb {
-            background: #0039A6;
-            border-radius: 10px;
+            /* Убираем flex:1, min-height и overflow */
         }
 
         .weapon-description {
             font-family: 'Roboto Slab', serif;
-            font-size: 18px;
+            font-size: 18px; /* Увеличенный текст */
             line-height: 1.7;
             color: #222;
             text-align: justify;
@@ -224,7 +162,7 @@
             .oreshnik-main {
                 height: auto;
                 min-height: calc(100vh - 160px);
-                overflow-y: auto;
+                /* overflow-y auto уже есть */
             }
             
             .oreshnik-main .page-title {
@@ -290,14 +228,13 @@
                         <div class="oreshnik-image-container">
                             <img src="content/download.webp" alt="Ракетный комплекс Орешник" class="oreshnik-image">
                         </div>
-                        
                     </div>
                     
                     <!-- Блок с характеристиками -->
                     <div class="oreshnik-specs-block">
                         <div class="weapon-subtitle">Баллистическая ракета средней дальности</div>
                         
-                        <!-- Сетка с характеристиками на всю ширину блока -->
+                        <!-- Сетка с характеристиками -->
                         <div class="specs-grid">
                             <div class="spec-item">
                                 <div class="spec-label">Дальность</div>
@@ -316,7 +253,6 @@
                                 <div class="spec-value">до 900 <span class="spec-unit">кт</span></div>
                             </div>
                         </div>
-                    
                     </div>
                 </div>
                 
