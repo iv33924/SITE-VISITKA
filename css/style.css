@@ -1,10 +1,10 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Подключаем красивые шрифты */
+/* Подключаем красивые шрифты
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700;900&display=swap');
 
 html, body {
@@ -49,7 +49,7 @@ main {
     scrollbar-color: #0039A6 rgba(255, 255, 255, 0.5);
 }
 
-/* Стилизация скроллбара для WebKit браузеров */
+/* Стилизация скроллбара для WebKit браузеров 
 main::-webkit-scrollbar {
     width: 8px;
 }
@@ -76,7 +76,7 @@ footer {
     border-radius: 15px 15px 0 0;
 }
 
-/* ========== ОБЩИЕ СТИЛИ ДЛЯ ЗАГОЛОВКОВ ========== */
+/* ========== ОБЩИЕ СТИЛИ ДЛЯ ЗАГОЛОВКОВ ========== 
 h1 {
     font-family: 'Playfair Display', serif;
     font-weight: 900;
@@ -97,7 +97,7 @@ h1::after {
     border-radius: 2px;
 }
 
-/* ========== СТИЛИ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ (index.html) ========== */
+/* ========== СТИЛИ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ (index.html) ========== 
 main > h1 {
     font-size: 56px;
     margin: 15px 0 20px 0;
@@ -139,7 +139,7 @@ main > h1 {
     border: 3px solid white;
 }
 
-/* ========== СТИЛИ ДЛЯ СТРАНИЦЫ ФАКТОВ (uslugi.html) ========== */
+/* ========== СТИЛИ ДЛЯ СТРАНИЦЫ ФАКТОВ (uslugi.html) ========== 
 .page-title {
     font-size: 48px;
     margin: 15px 0 10px 0;
@@ -221,7 +221,7 @@ main > h1 {
     color: white;
 }
 
-/* ========== СТИЛИ ДЛЯ ИЗОБРАЖЕНИЙ ========== */
+/* ========== СТИЛИ ДЛЯ ИЗОБРАЖЕНИЙ ========== 
 .main__img--float {
     width: 550px;
     margin: 20px 40px 20px 0;
@@ -230,7 +230,7 @@ main > h1 {
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* ========== АДАПТИВНОСТЬ ДЛЯ МАЛЕНЬКИХ ЭКРАНОВ ========== */
+/* ========== АДАПТИВНОСТЬ ДЛЯ МАЛЕНЬКИХ ЭКРАНОВ ========== 
 @media (max-width: 1000px) {
     header, main, footer {
         padding: 0 15px;
@@ -278,14 +278,14 @@ main > h1 {
     }
 }
 
-/* Очистка float */
+/* Очистка float 
 .clearfix::after {
     content: "";
     display: table;
     clear: both;
 }
 
-/* ========== ПРИНУДИТЕЛЬНОЕ ВЫРАВНИВАНИЕ ШАПКИ ========== */
+/* ========== ПРИНУДИТЕЛЬНОЕ ВЫРАВНИВАНИЕ ШАПКИ ========== 
 header {
     display: flex !important;
     justify-content: space-between !important;
@@ -352,7 +352,7 @@ header {
     color: #fff !important;
 }
 
-/* ========== БЕГУЩАЯ СТРОКА С ГИМНОМ ========== */
+/* ========== БЕГУЩАЯ СТРОКА С ГИМНОМ ========== *
 .hymn-ticker {
     width: 100%;
     height: 60px;
@@ -387,7 +387,7 @@ header {
     }
 }
 
-/* ========== БЛОК С ГИМНОМ ========== */
+/* ========== БЛОК С ГИМНОМ ========== *
 .hymn-block {
     width: 100%;
     margin: 20px 0;
@@ -404,7 +404,7 @@ header {
     text-shadow: 2px 2px 4px rgba(0,57,166,0.2);
 }
 
-/* Кнопка */
+/* Кнопка *
 .hymn-button {
     background: linear-gradient(90deg, #FFFFFF, #0039A6, #D52B1E);
     color: black;
@@ -419,8 +419,8 @@ header {
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     margin-bottom: 20px;
     letter-spacing: 2px;
-    min-width: 350px;  /* Фиксированная минимальная ширина кнопки */
-    text-align: center; /* Текст по центру */
+    min-width: 350px;  /* Фиксированная минимальная ширина кнопки *
+    text-align: center; /* Текст по центру *
 }
 
 .hymn-button:hover {
@@ -431,8 +431,8 @@ header {
 
 .play-icon {
     display: inline-block;
-    width: 30px;        /* Фиксированная ширина для иконки */
-    text-align: center; /* Выравнивание по центру */
+    width: 30px;        /* Фиксированная ширина для иконки *
+    text-align: center; /* Выравнивание по центру *
     margin-right: 10px;
     font-size: 28px;
 }
@@ -456,7 +456,7 @@ header {
     color: #0039A6; 
 }
 
-/* Стили для выпадающего меню (режим клика) */
+/* Стили для выпадающего меню (режим клика) *
 .dropdown {
     position: relative;
     display: inline-block;
@@ -481,13 +481,13 @@ header {
     background-color: #34495e;
 }
 
-/* Активное состояние кнопки когда меню открыто */
+/* Активное состояние кнопки когда меню открыто *
 .dropbtn.active {
     background-color: #e74c3c;
 }
 
 .dropdown-content {
-    display: none;  /* Скрыто по умолчанию */
+    display: none;  /* Скрыто по умолчанию *
     position: absolute;
     top: 100%;
     left: 0;
@@ -499,16 +499,16 @@ header {
     z-index: 1000;
     margin-top: 5px;
     
-    /* Анимация появления */
+    /* Анимация появления *
     animation: slideDown 0.2s ease-out;
 }
 
-/* Класс для открытого меню (будет добавляться через JavaScript) */
+/* Класс для открытого меню (будет добавляться через JavaScript) *
 .dropdown-content.show {
     display: block;
 }
 
-/* Анимация появления */
+/* Анимация появления *
 @keyframes slideDown {
     from {
         opacity: 0;
@@ -520,7 +520,7 @@ header {
     }
 }
 
-/* Стили для вкладок внутри выпадающего меню */
+/* Стили для вкладок внутри выпадающего меню *
 .tab-container {
     display: flex;
     flex-direction: column;
@@ -551,28 +551,28 @@ header {
 
 /* ========== СТИЛИ ДЛЯ СТРАНИЦЫ ПУТИНА (putin.html) ========== */
 
-/* Специальные стили для main на странице Путина */
+/* Специальные стили для main на странице Путина *
 .putin-main {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 180px); /* 100vh минус высота header и footer */
+    height: calc(100vh - 180px); /* 100vh минус высота header и footer *
     padding: 10px 20px !important;
-    overflow: hidden; /* Убираем прокрутку */
+    overflow: hidden; /* Убираем прокрутку *
 }
 
-/* Заголовок на странице Путина */
+/* Заголовок на странице Путина *
 .putin-title {
     font-size: 42px !important;
     margin: 5px 0 15px 0 !important;
     flex-shrink: 0;
 }
 
-/* Основной контейнер для текста и гифки */
+/* Основной контейнер для текста и гифки *
 .putin-container {
     display: flex;
     gap: 30px;
     flex: 1;
-    min-height: 0; /* Важно для flex-контейнера */
+    min-height: 0; /* Важно для flex-контейнера *
     background: rgba(255, 255, 255, 0.85);
     border-radius: 30px;
     padding: 25px;
@@ -580,17 +580,17 @@ header {
     backdrop-filter: blur(5px);
 }
 
-/* Левая колонка с текстом */
+/* Левая колонка с текстом *
 .putin-text-column {
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    overflow-y: auto; /* Текст может прокручиваться внутри колонки если нужно */
+    overflow-y: auto; /* Текст может прокручиваться внутри колонки если нужно *
     padding-right: 5px;
 }
 
-/* Стилизация скроллбара для текстовой колонки */
+/* Стилизация скроллбара для текстовой колонки *
 .putin-text-column::-webkit-scrollbar {
     width: 5px;
 }
@@ -605,7 +605,7 @@ header {
     border-radius: 10px;
 }
 
-/* Абзацы текста */
+/* Абзацы текста *
 .putin-paragraph {
     font-family: 'Roboto Slab', serif;
     font-size: 15px;
@@ -620,7 +620,7 @@ header {
     transition: all 0.2s ease;
 }
 
-/* Цветные границы для абзацев */
+/* Цветные границы для абзацев *
 .putin-paragraph:nth-child(1) {
     border-left-color: #0039A6;
 }
@@ -633,16 +633,16 @@ header {
     border-left-color: #0039A6;
 }
 
-/* Эффект при наведении */
+/* Эффект при наведении *
 .putin-paragraph:hover {
     background: white;
     transform: translateX(3px);
     box-shadow: 0 3px 8px rgba(0,57,166,0.15);
 }
 
-/* Правая колонка с гифкой */
+/* Правая колонка с гифкой *
 .putin-gif-column {
-    flex: 0 0 45%; /* Фиксированная ширина 45% */
+    flex: 0 0 45%; /* Фиксированная ширина 45% *
     display: flex;
     align-items: center;
 }
@@ -670,14 +670,14 @@ header {
     display: block;
 }
 
-/* Тонкая настройка для разных соотношений сторон гифки */
+/* Тонкая настройка для разных соотношений сторон гифки *
 @supports (object-fit: cover) {
     .putin-gif {
         object-fit: cover;
     }
 }
 
-/* Адаптивность для экранов меньше 1000px */
+/* Адаптивность для экранов меньше 1000px *
 @media (max-width: 1000px) {
     .putin-main {
         height: calc(100vh - 160px);
@@ -704,7 +704,7 @@ header {
     }
 }
 
-/* Адаптивность для экранов меньше 800px */
+/* Адаптивность для экранов меньше 800px *
 @media (max-width: 800px) {
     .putin-main {
         height: auto;
@@ -713,7 +713,7 @@ header {
     }
     
     .putin-container {
-        flex-direction: column-reverse; /* На мобильных гифка сверху, текст снизу */
+        flex-direction: column-reverse; /* На мобильных гифка сверху, текст снизу *
     }
     
     .putin-gif-column {
@@ -726,7 +726,7 @@ header {
     }
 }
 
-/* Для очень высоких экранов */
+/* Для очень высоких экранов *
 @media (min-height: 900px) {
     .putin-paragraph {
         font-size: 16px;
@@ -735,18 +735,18 @@ header {
     }
 }
 
-/* Единый стиль для всех кнопок навигации */
+/* Единый стиль для всех кнопок навигации *
 .nav-link, .dropbtn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 40px; /* Фиксированная высота для всех кнопок */
-    line-height: 40px; /* Одинаковая высота строки */
+    height: 40px; /* Фиксированная высота для всех кнопок *
+    line-height: 40px; /* Одинаковая высота строки *
     color: white;
     text-decoration: none;
     font-size: 18px;
     font-weight: 500;
-    padding: 0 15px; /* Убираем вертикальные padding, используем height */
+    padding: 0 15px; /* Убираем вертикальные padding, используем height *
     border-radius: 4px;
     transition: background-color 0.3s;
     background: none;
@@ -757,10 +757,10 @@ header {
     box-sizing: border-box;
 }
 
-/* Стили для навигационного списка */
+/* Стили для навигационного списка *
 .nav-links {
     display: flex;
-    align-items: center; /* Выравнивание по вертикали */
+    align-items: center; /* Выравнивание по вертикали *
     justify-content: center;
     gap: 30px;
     list-style: none;
@@ -774,8 +774,8 @@ header {
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: 120px; /* Фиксированная ширина для обеих кнопок */
-    padding: 10px 0; /* Горизонтальный padding убираем, так как ширина фиксирована */
+    width: 120px; /* Фиксированная ширина для обеих кнопок *
+    padding: 10px 0; /* Горизонтальный padding убираем, так как ширина фиксирована *
     box-sizing: border-box;
 }
 .nav-links li {
@@ -784,26 +784,487 @@ header {
     height: 100%;
 }
 
-/* Ховер эффекты */
+/* Ховер эффекты *
 .nav-link:hover, .dropbtn:hover {
     background-color: #34495e;
 }
 
-/* Активное состояние для dropbtn */
+/* Активное состояние для dropbtn *
 .dropbtn.active {
     background-color: #e74c3c;
 }
 
-/* Обновляем существующие стили, чтобы не было конфликтов */
+/* Обновляем существующие стили, чтобы не было конфликтов *
 .main-nav {
-    /* background-color: #2c3e50; */
-    padding: 0; /* Убираем вертикальные padding */
-    height: 60px; /* Фиксированная высота навбара */
+    /* background-color: #2c3e50; *
+    padding: 0; /* Убираем вертикальные padding *
+    height: 60px; /* Фиксированная высота навбара *
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-    /* margin-bottom: 30px; */
+    /* margin-bottom: 30px; *
     position: relative;
     z-index: 100;
+} */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Подключаем красивые шрифты */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700;900&display=swap');
+
+html, body {
+    background: linear-gradient(180deg, 
+        #FFFFFF 0%, 
+        #FFFFFF 33%, 
+        #0039A6 33%, 
+        #0039A6 66%, 
+        #D52B1E 66%, 
+        #D52B1E 100%);
+    color: black;
+    height: 100%;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+#wrapper {
+    height: 100vh;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+header, main, footer {
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+main {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+    padding: 10px 20px;
+    scrollbar-width: thin;
+    scrollbar-color: #0039A6 rgba(255, 255, 255, 0.5);
+}
+
+/* Стилизация скроллбара для WebKit браузеров */
+main::-webkit-scrollbar {
+    width: 8px;
+}
+main::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+main::-webkit-scrollbar-thumb {
+    background: #0039A6;
+    border-radius: 10px;
+}
+
+footer {
+    height: 80px;
+    flex-shrink: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    padding: 25px 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px 15px 0 0;
+}
+
+/* ========== ОБЩИЕ СТИЛИ ДЛЯ ЗАГОЛОВКОВ ========== */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    text-align: center;
+    color: #0039A6;
+    text-shadow: 3px 3px 6px rgba(0,57,166,0.3);
+    letter-spacing: 2px;
+    position: relative;
+}
+h1::after {
+    content: "";
+    display: block;
+    width: 150px;
+    height: 4px;
+    background: linear-gradient(90deg, #FFFFFF, #0039A6, #D52B1E);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* ========== СТИЛИ ДЛЯ ГЛАВНОЙ СТРАНИЦЫ (index.html) ========== */
+main > h1 {
+    font-size: 56px;
+    margin: 15px 0 20px 0;
+}
+.main__content {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    margin: 10px 0 20px 0;
+}
+.main__content p {
+    text-align: justify;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.7;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+    color: #222;
+}
+.main__content p:last-child {
+    margin-bottom: 0;
+}
+.content__img {
+    width: 260px;
+    height: auto;
+    float: left;
+    margin: 0 25px 15px 0;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border: 3px solid white;
+}
+
+/* ========== СТИЛИ ДЛЯ СТРАНИЦЫ ФАКТОВ (uslugi.html) ========== */
+.page-title {
+    font-size: 48px;
+    margin: 15px 0 10px 0;
+}
+.services {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    padding: 0;
+}
+.services__item {
+    width: 300px;
+    flex: 0 0 auto;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.services__item:hover {
+    transform: translateY(-5px);
+}
+.services__img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 12px;
+    border: 3px solid white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.services__item h2 {
+    font-size: 24px;
+    font-family: 'Playfair Display', serif;
+    color: #D52B1E;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.services__item p {
+    font-size: 18px;
+    line-height: 1.6;
+    font-family: 'Roboto Slab', serif;
+    color: #222;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+.more-link {
+    display: inline-block;
+    text-decoration: none;
+    color: #0039A6;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 5px 15px;
+    border: 2px solid #0039A6;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+    align-self: center;
+}
+.more-link:hover {
+    background-color: #0039A6;
+    color: white;
+}
+
+/* ========== АДАПТИВНОСТЬ ========== */
+@media (max-width: 1000px) {
+    header, main, footer { padding: 0 15px; }
+    .services { flex-wrap: wrap; gap: 15px; }
+    .services__item { width: 280px; }
+    .content__img { width: 200px; }
+    main > h1 { font-size: 42px; }
+    .page-title { font-size: 38px; }
+}
+@media (max-width: 700px) {
+    .content__img { width: 100%; float: none; margin: 0 0 15px 0; }
+    .services__item { width: 100%; max-width: 350px; }
+    header { flex-direction: column; height: auto; padding: 15px; gap: 10px; }
+}
+
+/* ========== СТИЛИ ШАПКИ ========== */
+header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    height: 100px !important;
+    width: 100% !important;
+    max-width: 1040px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+}
+.header__left {
+    font-size: 20px !important;
+    font-weight: bold !important;
+    color: #333 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    white-space: nowrap !important;
+}
+.header__right {
+    width: auto !important;
+    text-align: right !important;
+}
+#logo {
+    text-transform: uppercase;
+    text-decoration:none;
+    color:black;
+    font-weight: 600;
+    line-height: 100px;
+    font-size: 20px;
+}
+.pink { color: #0039A6; }
+
+/* ========== ОСНОВНЫЕ СТИЛИ НАВИГАЦИИ (ИСПРАВЛЕННЫЕ) ========== */
+.main-nav {
+    background-color: #2c3e50;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 100;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.nav-links li {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+}
+
+/* Единый стиль для ВСЕХ кнопок навигации (ГЛАВНАЯ и КАТАЛОГ) */
+.nav-links a,
+.nav-links .dropbtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width: 100px;        /* Минимальная ширина */
+    height: 40px;             /* Фиксированная высота */
+    padding: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    box-sizing: border-box;
+    line-height: normal;
+    white-space: nowrap;
+}
+
+/* Ховер эффекты */
+.nav-links a:hover,
+.nav-links .dropbtn:hover {
+    background-color: #34495e;
+}
+
+/* Активное состояние для dropbtn */
+.nav-links .dropbtn.active {
+    background-color: #e74c3c;
+}
+
+/* Стили для выпадающего меню */
+.dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    min-width: 220px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1000;
+    margin-top: 5px;
+    animation: slideDown 0.2s ease-out;
+}
+.dropdown-content.show {
+    display: block;
+}
+@keyframes slideDown {
+    from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Стили для вкладок внутри выпадающего меню */
+.tab-container {
+    display: flex;
+    flex-direction: column;
+}
+.tab {
+    padding: 12px 20px;
+    text-align: left;
+    background: none;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    transition: background-color 0.3s;
+    border-bottom: 1px solid #eee;
+    font-family: inherit;
+}
+.tab:last-child { border-bottom: none; }
+.tab:hover {
+    background-color: #f0f0f0;
+    color: #e74c3c;
+}
+
+/* ========== СТИЛИ ДЛЯ СТРАНИЦЫ ПУТИНА (putin.html) ========== */
+.putin-main {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 180px);
+    padding: 10px 20px !important;
+    overflow: hidden;
+}
+.putin-container {
+    display: flex;
+    gap: 30px;
+    flex: 1;
+    min-height: 0;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 30px;
+    padding: 25px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    backdrop-filter: blur(5px);
+}
+.putin-text-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+.putin-text-column::-webkit-scrollbar { width: 5px; }
+.putin-text-column::-webkit-scrollbar-track { background: rgba(0, 57, 166, 0.1); border-radius: 10px; }
+.putin-text-column::-webkit-scrollbar-thumb { background: #0039A6; border-radius: 10px; }
+
+.putin-paragraph {
+    font-family: 'Roboto Slab', serif;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #222;
+    text-align: justify;
+    margin: 0;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    border-left: 4px solid #0039A6;
+    transition: all 0.2s ease;
+}
+.putin-paragraph:hover {
+    background: white;
+    transform: translateX(3px);
+    box-shadow: 0 3px 8px rgba(0,57,166,0.15);
+}
+
+.putin-gif-column {
+    flex: 0 0 45%;
+    display: flex;
+    align-items: center;
+}
+.putin-gif-container {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 30px rgba(0,57,166,0.3);
+    border: 4px solid white;
+    transition: transform 0.3s ease;
+}
+.putin-gif-container:hover { transform: scale(1.02); }
+.putin-gif {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Адаптивность для страницы Путина */
+@media (max-width: 1000px) {
+    .putin-main { height: calc(100vh - 160px); padding: 5px 15px !important; }
+    .putin-container { padding: 20px; gap: 20px; }
+    .putin-gif-column { flex: 0 0 42%; }
+    .putin-paragraph { font-size: 14px; padding: 10px 12px; }
+}
+@media (max-width: 800px) {
+    .putin-main { height: auto; min-height: calc(100vh - 160px); overflow-y: auto; }
+    .putin-container { flex-direction: column-reverse; }
+    .putin-gif-column { flex: 0 0 auto; height: 250px; }
+    .putin-text-column { max-height: 400px; }
+}
+@media (min-height: 900px) {
+    .putin-paragraph { font-size: 16px; line-height: 1.6; padding: 15px 18px; }
 }
