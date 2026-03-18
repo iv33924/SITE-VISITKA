@@ -25,7 +25,8 @@
 
         .oreshnik-container {
             display: flex;
-            gap: 30px;
+            flex-direction: column;
+            gap: 25px;
             flex: 1;
             min-height: 0;
             background: rgba(255, 255, 255, 0.9);
@@ -34,15 +35,30 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.25);
             backdrop-filter: blur(5px);
             border: 1px solid rgba(255,255,255,0.3);
+            overflow-y: auto;
         }
 
-        /* Левая колонка занимает ровно столько, сколько нужно для картинки */
-        .oreshnik-image-column {
-            flex: 0 0 auto;
-            width: 45%;
+        /* Стилизация скроллбара */
+        .oreshnik-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .oreshnik-container::-webkit-scrollbar-track {
+            background: rgba(0, 57, 166, 0.1);
+            border-radius: 10px;
+        }
+
+        .oreshnik-container::-webkit-scrollbar-thumb {
+            background: #0039A6;
+            border-radius: 10px;
+        }
+
+        /* Блок с картинкой на всю ширину */
+        .oreshnik-image-block {
+            width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 10px;
         }
 
         .oreshnik-image-container {
@@ -53,10 +69,11 @@
             border: 4px solid white;
             transition: all 0.3s ease;
             aspect-ratio: 16 / 9;
+            max-height: 400px;
         }
 
         .oreshnik-image-container:hover {
-            transform: scale(1.02);
+            transform: scale(1.01);
             box-shadow: 0 25px 40px rgba(213,43,30,0.4);
         }
 
@@ -78,51 +95,31 @@
             padding: 8px 15px;
             border-radius: 30px;
             border-left: 4px solid #D52B1E;
+            margin-bottom: 5px;
         }
 
-        /* Правая колонка занимает всё оставшееся место */
-        .oreshnik-text-column {
-            flex: 1;
+        /* Блок с текстом на всю ширину под картинкой */
+        .oreshnik-text-block {
+            width: 100%;
             display: flex;
             flex-direction: column;
             gap: 20px;
-            overflow-y: auto;
-            padding-right: 10px;
-            min-width: 0; /* Предотвращает выпадение текста */
-        }
-
-        /* Стилизация скроллбара */
-        .oreshnik-text-column::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .oreshnik-text-column::-webkit-scrollbar-track {
-            background: rgba(0, 57, 166, 0.1);
-            border-radius: 10px;
-        }
-
-        .oreshnik-text-column::-webkit-scrollbar-thumb {
-            background: #0039A6;
-            border-radius: 10px;
-        }
-
-        /* Убираем дублирующий заголовок, оставляем только page-title */
-        .weapon-name {
-            display: none;
         }
 
         .weapon-subtitle {
             font-family: 'Montserrat', sans-serif;
-            font-size: 16px;
+            font-size: 18px;
             color: #D52B1E;
             font-weight: 600;
             letter-spacing: 1px;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
+            border-bottom: 2px solid #0039A6;
+            padding-bottom: 10px;
         }
 
         .specs-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 15px;
             margin: 5px 0;
         }
@@ -159,19 +156,19 @@
 
         .weapon-description {
             font-family: 'Roboto Slab', serif;
-            font-size: 15px;
+            font-size: 16px;
             line-height: 1.7;
             color: #222;
             text-align: justify;
             background: rgba(255, 255, 255, 0.7);
-            padding: 20px;
+            padding: 25px;
             border-radius: 20px;
             border: 1px solid rgba(0,57,166,0.2);
             margin: 5px 0 0 0;
         }
 
         .weapon-description p {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .weapon-description p:last-child {
@@ -190,7 +187,6 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             align-self: flex-start;
-            margin-top: 5px;
         }
 
         /* Адаптивность */
@@ -200,31 +196,27 @@
                 min-height: calc(100vh - 160px);
                 overflow-y: auto;
             }
-
-            .oreshnik-container {
-                flex-direction: column;
-            }
-
-            .oreshnik-image-column {
-                width: 100%;
-            }
-
-            .oreshnik-image-container {
-                max-height: 300px;
-            }
-
-            .specs-grid {
-                grid-template-columns: 1fr;
-            }
             
             .oreshnik-main .page-title {
                 font-size: 38px;
+            }
+            
+            .specs-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 600px) {
             .oreshnik-main .page-title {
                 font-size: 32px;
+            }
+            
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .oreshnik-image-container {
+                max-height: 250px;
             }
         }
     </style>
@@ -256,27 +248,26 @@
         </header>
 
         <main class="oreshnik-main">
-            <!-- Заголовок по центру как на других страницах -->
+            <!-- Заголовок по центру -->
             <h1 class="page-title">ОРЕШНИК</h1>
             
-            <!-- Основной контейнер с изображением и текстом -->
+            <!-- Контейнер с картинкой и текстом -->
             <div class="oreshnik-container">
-                <!-- Левая колонка с изображением -->
-                <div class="oreshnik-image-column">
+                <!-- Блок с картинкой на всю ширину -->
+                <div class="oreshnik-image-block">
                     <div class="oreshnik-image-container">
                         <img src="content/download.webp" alt="Ракетный комплекс Орешник" class="oreshnik-image">
                     </div>
                     <div class="image-caption">
                         Ракетный комплекс «Орешник» на боевом дежурстве
                     </div>
-                    <span class="strategic-badge">Стратегическое сдерживание</span>
                 </div>
                 
-                <!-- Правая колонка с текстом на всю оставшуюся ширину -->
-                <div class="oreshnik-text-column">
+                <!-- Блок с текстом на всю ширину под картинкой -->
+                <div class="oreshnik-text-block">
                     <div class="weapon-subtitle">Баллистическая ракета средней дальности</div>
                     
-                    <!-- Сетка с основными характеристиками -->
+                    <!-- Сетка с характеристиками на всю ширину -->
                     <div class="specs-grid">
                         <div class="spec-item">
                             <div class="spec-label">Дальность</div>
@@ -296,14 +287,16 @@
                         </div>
                     </div>
                     
-                    <!-- Описание на всю ширину колонки -->
+                    <!-- Текст тремя абзацами на всю ширину -->
                     <div class="weapon-description">
-                        <p><strong>Ракетный комплекс «Орешник»</strong> — новейшая российская баллистическая ракета средней дальности с гиперзвуковыми характеристиками. Впервые официально представлен в ноябре 2024 года. Комплекс предназначен для поражения высокозащищённых и заглублённых целей, включая объекты военно-промышленного комплекса и критически важной инфраструктуры.</p>
+                        <p>Ракетный комплекс «Орешник» — новейшая российская баллистическая ракета средней дальности с гиперзвуковыми характеристиками. Впервые официально представлен в ноябре 2024 года. Комплекс предназначен для поражения высокозащищённых и заглублённых целей, включая объекты военно-промышленного комплекса и критически важной инфраструктуры.</p>
                         
                         <p>Гиперзвуковая скорость (до 10 Мах, около 12,4 тыс. км/ч) и особенности траектории существенно затрудняют перехват современными системами ПРО — эффективный перехват возможен лишь на начальной фазе полёта. Масса боевой части достигает 1,5 тонны, предусмотрена возможность оснащения неядерными и ядерными боевыми блоками мощностью до 900 кт.</p>
                         
                         <p>Серийное производство комплекса уже запущено, отдельные образцы поставлены на боевое дежурство. Предусмотрено размещение «Орешника» на территории Республики Беларусь при сохранении оперативного управления со стороны РФ. Внедрение этого комплекса направлено на укрепление стратегического баланса и расширение возможностей сдерживания в рамках международных обязательств России.</p>
                     </div>
+                    
+                    <span class="strategic-badge">Стратегическое сдерживание</span>
                 </div>
             </div>
         </main>
