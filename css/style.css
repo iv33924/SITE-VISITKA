@@ -863,10 +863,12 @@ main {
 main::-webkit-scrollbar {
     width: 8px;
 }
+
 main::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0.5);
     border-radius: 10px;
 }
+
 main::-webkit-scrollbar-thumb {
     background: #0039A6;
     border-radius: 10px;
@@ -894,6 +896,7 @@ h1 {
     letter-spacing: 2px;
     position: relative;
 }
+
 h1::after {
     content: "";
     display: block;
@@ -909,6 +912,7 @@ main > h1 {
     font-size: 56px;
     margin: 15px 0 20px 0;
 }
+
 .main__content {
     background-color: rgba(255, 255, 255, 0.85);
     padding: 25px;
@@ -916,6 +920,7 @@ main > h1 {
     box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     margin: 10px 0 20px 0;
 }
+
 .main__content p {
     text-align: justify;
     margin-bottom: 20px;
@@ -924,10 +929,16 @@ main > h1 {
     font-family: 'Roboto Slab', serif;
     font-weight: 400;
     color: #222;
+    letter-spacing: 0.3px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
+
 .main__content p:last-child {
     margin-bottom: 0;
 }
+
 .content__img {
     width: 260px;
     height: auto;
@@ -943,6 +954,7 @@ main > h1 {
     font-size: 48px;
     margin: 15px 0 10px 0;
 }
+
 .services {
     display: flex;
     flex-wrap: nowrap;
@@ -951,6 +963,7 @@ main > h1 {
     width: 100%;
     padding: 0;
 }
+
 .services__item {
     width: 300px;
     flex: 0 0 auto;
@@ -962,9 +975,11 @@ main > h1 {
     display: flex;
     flex-direction: column;
 }
+
 .services__item:hover {
     transform: translateY(-5px);
 }
+
 .services__img {
     width: 100%;
     height: 140px;
@@ -974,6 +989,7 @@ main > h1 {
     border: 3px solid white;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
+
 .services__item h2 {
     font-size: 24px;
     font-family: 'Playfair Display', serif;
@@ -981,6 +997,7 @@ main > h1 {
     margin-bottom: 10px;
     text-align: center;
 }
+
 .services__item p {
     font-size: 18px;
     line-height: 1.6;
@@ -989,6 +1006,11 @@ main > h1 {
     margin-bottom: 10px;
     text-align: justify;
 }
+
+.services__item p:last-of-type {
+    margin-bottom: 0;
+}
+
 .more-link {
     display: inline-block;
     text-decoration: none;
@@ -1003,27 +1025,77 @@ main > h1 {
     margin-top: 8px;
     align-self: center;
 }
+
 .more-link:hover {
     background-color: #0039A6;
     color: white;
 }
 
-/* ========== АДАПТИВНОСТЬ ========== */
-@media (max-width: 1000px) {
-    header, main, footer { padding: 0 15px; }
-    .services { flex-wrap: wrap; gap: 15px; }
-    .services__item { width: 280px; }
-    .content__img { width: 200px; }
-    main > h1 { font-size: 42px; }
-    .page-title { font-size: 38px; }
-}
-@media (max-width: 700px) {
-    .content__img { width: 100%; float: none; margin: 0 0 15px 0; }
-    .services__item { width: 100%; max-width: 350px; }
-    header { flex-direction: column; height: auto; padding: 15px; gap: 10px; }
+/* ========== СТИЛИ ДЛЯ ИЗОБРАЖЕНИЙ ========== */
+.main__img--float {
+    width: 550px;
+    margin: 20px 40px 20px 0;
+    float: left;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* ========== СТИЛИ ШАПКИ ========== */
+/* ========== АДАПТИВНОСТЬ ДЛЯ МАЛЕНЬКИХ ЭКРАНОВ ========== */
+@media (max-width: 1000px) {
+    header, main, footer {
+        padding: 0 15px;
+    }
+    
+    .services {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .services__item {
+        width: 280px;
+    }
+    
+    .content__img {
+        width: 200px;
+    }
+    
+    main > h1 {
+        font-size: 42px;
+    }
+    
+    .page-title {
+        font-size: 38px;
+    }
+}
+
+@media (max-width: 700px) {
+    .content__img {
+        width: 100%;
+        float: none;
+        margin: 0 0 15px 0;
+    }
+    
+    .services__item {
+        width: 100%;
+        max-width: 350px;
+    }
+    
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+        gap: 10px;
+    }
+}
+
+/* Очистка float */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* ========== ПРИНУДИТЕЛЬНОЕ ВЫРАВНИВАНИЕ ШАПКИ ========== */
 header {
     display: flex !important;
     justify-content: space-between !important;
@@ -1034,6 +1106,7 @@ header {
     margin: 0 auto !important;
     padding: 0 20px !important;
 }
+
 .header__left {
     font-size: 20px !important;
     font-weight: bold !important;
@@ -1042,12 +1115,54 @@ header {
     text-transform: uppercase !important;
     letter-spacing: 1px !important;
     white-space: nowrap !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: auto !important;
+    background: transparent !important;
+    border: none !important;
 }
+
 .header__right {
     width: auto !important;
     text-align: right !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
 }
-#logo {
+
+.header__right h1 {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 20px !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+.header__right h1::after {
+    display: none !important;
+}
+
+.header__right a {
+    text-decoration: none !important;
+    color: #333 !important;
+    padding: 8px 20px !important;
+    border: 2px solid #333 !important;
+    border-radius: 5px !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 20px !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    background: transparent !important;
+}
+
+.header__right a:hover {
+    background-color: #333 !important;
+    color: #fff !important;
+}
+
+#logo{
     text-transform: uppercase;
     text-decoration:none;
     color:black;
@@ -1055,9 +1170,102 @@ header {
     line-height: 100px;
     font-size: 20px;
 }
-.pink { color: #0039A6; }
 
-/* ========== ОСНОВНЫЕ СТИЛИ НАВИГАЦИИ (ИСПРАВЛЕННЫЕ) ========== */
+.pink {
+    color: #0039A6; 
+}
+
+/* ========== БЕГУЩАЯ СТРОКА С ГИМНОМ ========== */
+.hymn-ticker {
+    width: 100%;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 3px solid;
+    border-image: linear-gradient(90deg, #FFFFFF, #0039A6, #D52B1E) 1;
+    border-radius: 15px;
+    margin: 15px 0 20px 0;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.hymn-content {
+    position: absolute;
+    white-space: nowrap;
+    line-height: 60px;
+    font-size: 20px;
+    font-family: 'Roboto Slab', serif;
+    color: #0039A6;
+    font-weight: 500;
+    animation: scrollHymn 60s linear infinite !important;
+    padding-left: 100%;
+}
+
+@keyframes scrollHymn {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* ========== БЛОК С ГИМНОМ ========== */
+.hymn-block {
+    width: 100%;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.hymn-title {
+    font-size: 32px;
+    font-family: 'Playfair Display', serif;
+    color: #0039A6;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,57,166,0.2);
+}
+
+/* Кнопка */
+.hymn-button {
+    background: linear-gradient(90deg, #FFFFFF, #0039A6, #D52B1E);
+    color: black;
+    border: 2px solid black;
+    border-radius: 50px;
+    padding: 15px 40px;
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    min-width: 350px;
+    text-align: center;
+}
+
+.hymn-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.play-icon {
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    margin-right: 10px;
+    font-size: 28px;
+}
+
+.hymn-button.playing {
+    background: linear-gradient(90deg, #FFFFFF, #0039A6, #D52B1E);
+    color: black;
+    border: 2px solid black;
+}
+
+/* ========== ОСНОВНЫЕ СТИЛИ НАВИГАЦИИ ========== */
 .main-nav {
     background-color: #2c3e50;
     height: 60px;
@@ -1088,15 +1296,15 @@ header {
     margin: 0;
 }
 
-/* Единый стиль для ВСЕХ кнопок навигации (ГЛАВНАЯ и КАТАЛОГ) */
+/* Единый стиль для ВСЕХ кнопок навигации */
 .nav-links a,
 .nav-links .dropbtn {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    min-width: 100px;        /* Минимальная ширина */
-    height: 40px;             /* Фиксированная высота */
+    min-width: 100px;
+    height: 40px;
     padding: 0 15px;
     color: white;
     text-decoration: none;
@@ -1131,6 +1339,7 @@ header {
     align-items: center;
     height: 100%;
 }
+
 .dropdown-content {
     display: none;
     position: absolute;
@@ -1146,12 +1355,20 @@ header {
     margin-top: 5px;
     animation: slideDown 0.2s ease-out;
 }
+
 .dropdown-content.show {
     display: block;
 }
+
 @keyframes slideDown {
-    from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
-    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
 }
 
 /* Стили для вкладок внутри выпадающего меню */
@@ -1159,6 +1376,7 @@ header {
     display: flex;
     flex-direction: column;
 }
+
 .tab {
     padding: 12px 20px;
     text-align: left;
@@ -1172,7 +1390,11 @@ header {
     border-bottom: 1px solid #eee;
     font-family: inherit;
 }
-.tab:last-child { border-bottom: none; }
+
+.tab:last-child {
+    border-bottom: none;
+}
+
 .tab:hover {
     background-color: #f0f0f0;
     color: #e74c3c;
@@ -1186,6 +1408,14 @@ header {
     padding: 10px 20px !important;
     overflow: hidden;
 }
+
+/* Заголовок на странице Путина */
+.putin-title {
+    font-size: 42px !important;
+    margin: 5px 0 15px 0 !important;
+    flex-shrink: 0;
+}
+
 .putin-container {
     display: flex;
     gap: 30px;
@@ -1197,6 +1427,7 @@ header {
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
     backdrop-filter: blur(5px);
 }
+
 .putin-text-column {
     flex: 1;
     display: flex;
@@ -1205,10 +1436,23 @@ header {
     overflow-y: auto;
     padding-right: 5px;
 }
-.putin-text-column::-webkit-scrollbar { width: 5px; }
-.putin-text-column::-webkit-scrollbar-track { background: rgba(0, 57, 166, 0.1); border-radius: 10px; }
-.putin-text-column::-webkit-scrollbar-thumb { background: #0039A6; border-radius: 10px; }
 
+/* Стилизация скроллбара для текстовой колонки */
+.putin-text-column::-webkit-scrollbar {
+    width: 5px;
+}
+
+.putin-text-column::-webkit-scrollbar-track {
+    background: rgba(0, 57, 166, 0.1);
+    border-radius: 10px;
+}
+
+.putin-text-column::-webkit-scrollbar-thumb {
+    background: #0039A6;
+    border-radius: 10px;
+}
+
+/* Абзацы текста */
 .putin-paragraph {
     font-family: 'Roboto Slab', serif;
     font-size: 15px;
@@ -1222,17 +1466,20 @@ header {
     border-left: 4px solid #0039A6;
     transition: all 0.2s ease;
 }
+
 .putin-paragraph:hover {
     background: white;
     transform: translateX(3px);
     box-shadow: 0 3px 8px rgba(0,57,166,0.15);
 }
 
+/* Правая колонка с гифкой */
 .putin-gif-column {
     flex: 0 0 45%;
     display: flex;
     align-items: center;
 }
+
 .putin-gif-container {
     width: 100%;
     height: 100%;
@@ -1243,7 +1490,11 @@ header {
     border: 4px solid white;
     transition: transform 0.3s ease;
 }
-.putin-gif-container:hover { transform: scale(1.02); }
+
+.putin-gif-container:hover {
+    transform: scale(1.02);
+}
+
 .putin-gif {
     width: 100%;
     height: 100%;
@@ -1254,17 +1505,56 @@ header {
 
 /* Адаптивность для страницы Путина */
 @media (max-width: 1000px) {
-    .putin-main { height: calc(100vh - 160px); padding: 5px 15px !important; }
-    .putin-container { padding: 20px; gap: 20px; }
-    .putin-gif-column { flex: 0 0 42%; }
-    .putin-paragraph { font-size: 14px; padding: 10px 12px; }
+    .putin-main {
+        height: calc(100vh - 160px);
+        padding: 5px 15px !important;
+    }
+    
+    .putin-title {
+        font-size: 36px !important;
+        margin: 5px 0 10px 0 !important;
+    }
+    
+    .putin-container {
+        padding: 20px;
+        gap: 20px;
+    }
+    
+    .putin-gif-column {
+        flex: 0 0 42%;
+    }
+    
+    .putin-paragraph {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
 }
+
 @media (max-width: 800px) {
-    .putin-main { height: auto; min-height: calc(100vh - 160px); overflow-y: auto; }
-    .putin-container { flex-direction: column-reverse; }
-    .putin-gif-column { flex: 0 0 auto; height: 250px; }
-    .putin-text-column { max-height: 400px; }
+    .putin-main {
+        height: auto;
+        min-height: calc(100vh - 160px);
+        overflow-y: auto;
+    }
+    
+    .putin-container {
+        flex-direction: column-reverse;
+    }
+    
+    .putin-gif-column {
+        flex: 0 0 auto;
+        height: 250px;
+    }
+    
+    .putin-text-column {
+        max-height: 400px;
+    }
 }
+
 @media (min-height: 900px) {
-    .putin-paragraph { font-size: 16px; line-height: 1.6; padding: 15px 18px; }
+    .putin-paragraph {
+        font-size: 16px;
+        line-height: 1.6;
+        padding: 15px 18px;
+    }
 }
