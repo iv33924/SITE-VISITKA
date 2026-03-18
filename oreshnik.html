@@ -10,15 +10,15 @@
         .oreshnik-main {
             display: flex;
             flex-direction: column;
-            height: calc(100vh - 180px); /* Та же высота, что и на других страницах */
+            height: calc(100vh - 180px);
             padding: 10px 20px !important;
-            overflow: hidden; /* Убираем прокрутку */
+            overflow: hidden;
         }
 
         /* Заголовок как на других страницах */
         .oreshnik-main .page-title {
             font-size: 48px;
-            margin: 5px 0 15px 0 !important; /* Чуть уменьшил нижний отступ */
+            margin: 0 0 10px 0 !important; /* Уменьшил отступ */
             text-align: center;
             flex-shrink: 0;
         }
@@ -26,25 +26,25 @@
         .oreshnik-container {
             display: flex;
             flex-direction: column;
-            gap: 20px; /* Уменьшил промежутки */
+            gap: 12px; /* Сильно уменьшил промежутки */
             flex: 1;
             min-height: 0;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 30px;
-            padding: 20px; /* Уменьшил padding */
+            padding: 15px; /* Уменьшил padding */
             box-shadow: 0 20px 40px rgba(0,0,0,0.25);
             backdrop-filter: blur(5px);
             border: 1px solid rgba(255,255,255,0.3);
-            overflow: hidden; /* Убираем прокрутку */
+            overflow: hidden;
         }
 
         /* Верхний блок с картинкой и характеристиками */
         .oreshnik-top-row {
             display: flex;
-            gap: 20px; /* Уменьшил gap */
+            gap: 12px; /* Уменьшил gap */
             width: 100%;
             flex-shrink: 0;
-            height: 45%; /* Фиксированная высота верхней части */
+            height: 42%; /* Немного уменьшил высоту верхней части */
         }
 
         /* Блок с картинкой */
@@ -52,13 +52,13 @@
             flex: 0 0 45%;
             display: flex;
             flex-direction: column;
-            gap: 8px; /* Уменьшил gap */
+            gap: 5px; /* Минимальный gap */
             height: 100%;
         }
 
         .oreshnik-image-container {
             width: 100%;
-            height: calc(100% - 30px); /* Оставляем место для подписи */
+            height: 100%; /* Убрал вычет, теперь картинка занимает всю высоту */
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 20px 30px rgba(0,57,166,0.4);
@@ -84,33 +84,33 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 10px; /* Уменьшил gap */
+            gap: 8px; /* Уменьшил gap */
             height: 100%;
         }
 
         .weapon-subtitle {
             font-family: 'Montserrat', sans-serif;
-            font-size: 16px; /* Чуть уменьшил */
+            font-size: 16px;
             color: #D52B1E;
             font-weight: 600;
             letter-spacing: 1px;
             border-bottom: 2px solid #0039A6;
-            padding-bottom: 8px;
+            padding-bottom: 5px;
             flex-shrink: 0;
         }
 
         .specs-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px; /* Уменьшил gap */
+            gap: 8px; /* Уменьшил gap */
             width: 100%;
             flex: 1;
         }
 
         .spec-item {
             background: linear-gradient(135deg, #f0f4ff, #ffffff);
-            border-radius: 15px;
-            padding: 12px; /* Уменьшил padding */
+            border-radius: 12px; /* Чуть уменьшил */
+            padding: 10px; /* Уменьшил padding */
             border-left: 4px solid #0039A6;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             display: flex;
@@ -120,7 +120,7 @@
 
         .spec-label {
             font-family: 'Montserrat', sans-serif;
-            font-size: 12px; /* Чуть уменьшил */
+            font-size: 12px;
             color: #666;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -129,7 +129,7 @@
 
         .spec-value {
             font-family: 'Roboto Slab', serif;
-            font-size: 18px; /* Чуть уменьшил */
+            font-size: 18px;
             font-weight: 700;
             color: #0039A6;
         }
@@ -143,71 +143,127 @@
         /* Нижний блок с основным текстом */
         .oreshnik-text-block {
             width: 100%;
-            height: 50%; /* Фиксированная высота нижней части */
-            overflow: hidden; /* Убираем прокрутку */
+            height: 53%; /* Чуть увеличил высоту нижней части */
+            overflow: hidden;
         }
 
         .weapon-description {
             font-family: 'Roboto Slab', serif;
-            font-size: 16px; /* Немного уменьшил для компактности, но оставил читаемым */
+            font-size: 18px; /* ТВОЙ РАЗМЕР - 18px */
             line-height: 1.5; /* Чуть уменьшил межстрочный интервал */
             color: #222;
             text-align: justify;
             background: rgba(255, 255, 255, 0.7);
-            padding: 15px; /* Уменьшил padding */
+            padding: 12px; /* Уменьшил padding */
             border-radius: 20px;
             border: 1px solid rgba(0,57,166,0.2);
             height: 100%;
-            overflow-y: hidden; /* Убираем прокрутку */
+            overflow-y: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
         }
 
         .weapon-description p {
-            margin-bottom: 10px; /* Уменьшил отступы между абзацами */
-            font-size: 16px;
+            margin-bottom: 8px; /* Уменьшил отступы между абзацами */
+            font-size: 18px; /* ТВОЙ РАЗМЕР - 18px */
         }
 
         .weapon-description p:last-child {
             margin-bottom: 0;
         }
 
-        /* Адаптивность */
-        @media (max-width: 1000px) {
+        /* Адаптивность для средних экранов */
+        @media (max-width: 1100px) {
             .oreshnik-main {
                 height: calc(100vh - 160px);
             }
             
             .oreshnik-main .page-title {
                 font-size: 42px;
-                margin: 5px 0 10px 0 !important;
-            }
-            
-            .oreshnik-top-row {
-                height: 42%;
-            }
-            
-            .oreshnik-text-block {
-                height: 48%;
+                margin: 0 0 8px 0 !important;
             }
             
             .weapon-description {
-                font-size: 15px;
-                padding: 12px;
+                font-size: 17px; /* Чуть меньше, но сохраняем читаемость */
+                padding: 10px;
             }
             
             .weapon-description p {
-                font-size: 15px;
-                margin-bottom: 8px;
+                font-size: 17px;
             }
         }
 
+        /* Для экранов с маленькой высотой */
+        @media (max-height: 750px) {
+            .oreshnik-main .page-title {
+                font-size: 36px;
+                margin: 0 0 5px 0 !important;
+            }
+            
+            .oreshnik-container {
+                padding: 10px;
+                gap: 8px;
+            }
+            
+            .oreshnik-top-row {
+                height: 40%;
+                gap: 8px;
+            }
+            
+            .spec-item {
+                padding: 6px;
+            }
+            
+            .spec-value {
+                font-size: 16px;
+            }
+            
+            .weapon-subtitle {
+                font-size: 14px;
+                padding-bottom: 3px;
+            }
+            
+            .weapon-description {
+                font-size: 16px; /* Всё ещё близко к 18 */
+                padding: 8px;
+                line-height: 1.4;
+            }
+            
+            .weapon-description p {
+                font-size: 16px;
+                margin-bottom: 5px;
+            }
+            
+            .oreshnik-text-block {
+                height: 52%;
+            }
+        }
+
+        /* Для очень низких экранов - разрешаем прокрутку */
+        @media (max-height: 650px) {
+            .oreshnik-main {
+                overflow-y: auto;
+            }
+            
+            .oreshnik-container {
+                overflow-y: auto;
+            }
+            
+            .oreshnik-text-block {
+                height: auto;
+            }
+            
+            .weapon-description {
+                height: auto;
+            }
+        }
+
+        /* Мобильная адаптация */
         @media (max-width: 900px) {
             .oreshnik-main {
                 height: auto;
                 min-height: calc(100vh - 160px);
-                overflow-y: auto; /* На мобильных всё-таки разрешаем прокрутку */
+                overflow-y: auto;
             }
             
             .oreshnik-main .page-title {
@@ -244,43 +300,6 @@
             
             .specs-grid {
                 grid-template-columns: 1fr;
-            }
-        }
-
-        /* Для экранов с маленькой высотой */
-        @media (max-height: 700px) {
-            .oreshnik-main .page-title {
-                font-size: 36px;
-                margin: 0 0 8px 0 !important;
-            }
-            
-            .oreshnik-container {
-                padding: 15px;
-                gap: 10px;
-            }
-            
-            .weapon-subtitle {
-                font-size: 14px;
-                padding-bottom: 5px;
-            }
-            
-            .spec-item {
-                padding: 8px;
-            }
-            
-            .spec-value {
-                font-size: 16px;
-            }
-            
-            .weapon-description {
-                font-size: 14px;
-                line-height: 1.4;
-                padding: 10px;
-            }
-            
-            .weapon-description p {
-                font-size: 14px;
-                margin-bottom: 6px;
             }
         }
     </style>
