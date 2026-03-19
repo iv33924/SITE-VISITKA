@@ -4,7 +4,284 @@
     <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Галерея - Красоты России</title>
+    <title>LADA - Российский автопром</title>
+    <style>
+        /* Временные стили для страницы LADA */
+        .lada-main {
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 180px);
+            padding: 10px 20px !important;
+            overflow: hidden;
+        }
+
+        /* Заголовок как на других страницах */
+        .lada-main .page-title {
+            font-size: 48px;
+            margin: 5px 0 15px 0 !important;
+            text-align: center;
+            flex-shrink: 0;
+            color: #0039A6;
+        }
+
+        .lada-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex: 1;
+            min-height: 0;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 30px;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.3);
+            overflow-y: auto;
+        }
+
+        /* Верхний блок с логотипом и описанием */
+        .lada-header {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(0,57,166,0.05) 0%, rgba(213,43,30,0.05) 100%);
+            border-radius: 25px;
+            padding: 15px;
+            border: 2px solid rgba(0,57,166,0.2);
+        }
+
+        .lada-logo {
+            flex: 0 0 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 10px 25px rgba(0,57,166,0.3);
+            border: 3px solid #D52B1E;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lada-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .lada-description {
+            flex: 1;
+            font-family: 'Roboto Slab', serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #222;
+            text-align: justify;
+            background: rgba(255,255,255,0.7);
+            padding: 15px 20px;
+            border-radius: 20px;
+            border-left: 5px solid #0039A6;
+        }
+
+        /* Сетка с моделями */
+        .models-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #0039A6;
+            margin: 5px 0 10px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .models-title::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #0039A6, #D52B1E);
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .model-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,57,166,0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .model-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,57,166,0.3);
+        }
+
+        .model-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-bottom: 3px solid #D52B1E;
+        }
+
+        .model-info {
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .model-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #0039A6;
+            margin-bottom: 5px;
+        }
+
+        .model-desc {
+            font-family: 'Roboto Slab', serif;
+            font-size: 14px;
+            color: #444;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        .model-type {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #D52B1E;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* Блок с преимуществами */
+        .advantages-section {
+            background: linear-gradient(135deg, #f0f4ff, #fff0f0);
+            border-radius: 25px;
+            padding: 20px;
+            border: 2px solid rgba(0,57,166,0.2);
+        }
+
+        .advantages-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #D52B1E;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .advantage-item {
+            background: white;
+            border-radius: 15px;
+            padding: 15px 10px;
+            text-align: center;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+            border-left: 3px solid #0039A6;
+            transition: all 0.3s ease;
+        }
+
+        .advantage-item:hover {
+            transform: scale(1.03);
+            border-left-color: #D52B1E;
+        }
+
+        .advantage-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .advantage-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #222;
+            line-height: 1.4;
+        }
+
+        /* Нижний блок с заключением */
+        .lada-footer {
+            font-family: 'Roboto Slab', serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #222;
+            text-align: justify;
+            background: rgba(0,57,166,0.05);
+            padding: 15px 20px;
+            border-radius: 20px;
+            border: 1px dashed #0039A6;
+            margin-top: 5px;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 1000px) {
+            .lada-main {
+                height: calc(100vh - 160px);
+            }
+            
+            .lada-main .page-title {
+                font-size: 42px;
+            }
+            
+            .advantages-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 800px) {
+            .lada-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .lada-logo {
+                flex: 0 0 120px;
+                height: 120px;
+                margin: 0 auto;
+            }
+            
+            .models-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .advantages-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .lada-main {
+                height: auto;
+                min-height: calc(100vh - 160px);
+                overflow-y: auto;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .lada-main .page-title {
+                font-size: 36px;
+            }
+            
+            .models-title {
+                font-size: 24px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="wrapper">
@@ -13,133 +290,159 @@
                 <a id="logo" href="index.html"><span class="pink">Сайт</span> <i>визитка</i></a>
             </div>
             <div class="header__right">
-
-                    
-                    <nav class="main-nav">
-        <ul class="nav-links">
-            <li><a href="index.html" class="nav-link">ГЛАВНАЯ</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropbtn" id="dropdownBtn">КАТАЛОГ</a>
-            <div class="dropdown-content" id="dropdownMenu">
-                <div class="tab-container">
-                    <button class="tab" onclick="navigateTo('putin.html')">ПРЕЗИДЕНТ</button>
-<button class="tab" onclick="navigateTo('facts.html')">ИНТЕРЕСНЫЕ ФАКТЫ</button>
-<button class="tab" onclick="navigateTo('auto_industry.html')">АВТОПРОМ</button>
-<button class="tab" onclick="navigateTo('oreshnik.html')">ОРЕШНИК</button>
-                </div>
+                <nav class="main-nav">
+                    <ul class="nav-links">
+                        <li><a href="index.html" class="nav-link">ГЛАВНАЯ</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropbtn" id="dropdownBtn">КАТАЛОГ</a>
+                            <div class="dropdown-content" id="dropdownMenu">
+                                <div class="tab-container">
+                                    <button class="tab" onclick="navigateTo('putin.html')">ПРЕЗИДЕНТ</button>
+                                    <button class="tab" onclick="navigateTo('facts.html')">ИНТЕРЕСНЫЕ ФАКТЫ</button>
+                                    <button class="tab" onclick="navigateTo('auto_industry.html')">АВТОПРОМ</button>
+                                    <button class="tab" onclick="navigateTo('oreshnik.html')">ОРЕШНИК</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-            </li>
-        </ul>
-    </nav>
-                </div>
         </header>
 
-        <main>
+        <main class="lada-main">
+            <!-- Заголовок по центру -->
             <h1 class="page-title">ЛАДА</h1>
-
-
-
-            <!-- Галерея из 4 картинок -->
-            <section class="gallery-section">
-                <div class="gallery-grid">
-                    
-                    <div class="gallery-item">
-                        <img src="content/gallery1.jpg" alt="Красота России" class="gallery-img">
-                        <div class="gallery-caption">
-                            <h3>Озеро Байкал</h3>
-                            <p>Самое глубокое озеро в мире, хранящее 20% всей пресной воды планеты.</p>
-                        </div>
+            
+            <!-- Основной контейнер -->
+            <div class="lada-container">
+                <!-- Блок с логотипом и описанием бренда -->
+                <div class="lada-header">
+                    <div class="lada-logo">
+                        <img src="content/4.png" alt="Логотип LADA">
                     </div>
-
-                    <div class="gallery-item">
-                        <img src="content/gallery2.jpg" alt="Красота России" class="gallery-img">
-                        <div class="gallery-caption">
-                            <h3>Горы Алтая</h3>
-                            <p>Величественные горы, внесенные в список Всемирного наследия ЮНЕСКО.</p>
-                        </div>
+                    <div class="lada-description">
+                        «Лада» — российский автомобильный бренд с многолетней историей, широко представленный на рынке легковых автомобилей. Модельная линейка включает бюджетные модели для массового потребителя, семейные автомобили с увеличенным пространством салона и внедорожники, адаптированные к сложным дорожным условиям.
                     </div>
-
-                    <div class="gallery-item">
-                        <img src="content/gallery3.jpg" alt="Красота России" class="gallery-img">
-                        <div class="gallery-caption">
-                            <h3>Собор Василия Блаженного</h3>
-                            <p>Символ Москвы и России, расположенный на Красной площади.</p>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item">
-                        <img src="content/gallery4.jpg" alt="Красота России" class="gallery-img">
-                        <div class="gallery-caption">
-                            <h3>Камчатка</h3>
-                            <p>Край вулканов и гейзеров на Дальнем Востоке России.</p>
-                        </div>
-                    </div>
-
                 </div>
-            </section>
 
+                <!-- Заголовок раздела моделей -->
+                <h2 class="models-title">Модельный ряд</h2>
+                
+                <!-- Сетка с тремя моделями автомобилей -->
+                <div class="models-grid">
+                    <!-- Lada Granta -->
+                    <div class="model-card">
+                        <img src="content/bronto_dt.webp" alt="Lada Granta" class="model-image">
+                        <div class="model-info">
+                            <div class="model-name">Lada Granta</div>
+                            <div class="model-desc">Бюджетная модель для массового потребителя. Оптимальное соотношение цены и качества, простота обслуживания.</div>
+                            <div class="model-type">Бюджетный седан</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Lada Vesta -->
+                    <div class="model-card">
+                        <img src="content/1920x1920 (7).webp" alt="Lada Vesta" class="model-image">
+                        <div class="model-info">
+                            <div class="model-name">Lada Vesta</div>
+                            <div class="model-desc">Семейный автомобиль с увеличенным пространством салона и багажника. Современный дизайн и комфорт.</div>
+                            <div class="model-type">Семейный седан</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Lada Niva -->
+                    <div class="model-card">
+                        <img src="content/sw-cross_d.1920x0.jpeg.webp" alt="Lada Niva" class="model-image">
+                        <div class="model-info">
+                            <div class="model-name">Lada Niva</div>
+                            <div class="model-desc">Легендарный внедорожник, адаптированный к эксплуатации в сложных дорожных условиях и бездорожью.</div>
+                            <div class="model-type">Внедорожник</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок с преимуществами -->
+                <div class="advantages-section">
+                    <h3 class="advantages-title">Ключевые преимущества</h3>
+                    <div class="advantages-grid">
+                        <div class="advantage-item">
+                            <div class="advantage-icon">💰</div>
+                            <div class="advantage-text">Доступная стоимость приобретения и обслуживания</div>
+                        </div>
+                        <div class="advantage-item">
+                            <div class="advantage-icon">❄️</div>
+                            <div class="advantage-text">Адаптация к российским климатическим и дорожным условиям</div>
+                        </div>
+                        <div class="advantage-item">
+                            <div class="advantage-icon">🏢</div>
+                            <div class="advantage-text">Широкая сеть официальных дилерских и сервисных центров на территории РФ</div>
+                        </div>
+                        <div class="advantage-item">
+                            <div class="advantage-icon">✓</div>
+                            <div class="advantage-text">Соответствие актуальным требованиям безопасности и экологическим стандартам</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Заключительный блок -->
+                <div class="lada-footer">
+                    Автомобили «Лада» востребованы как среди частных покупателей, так и в корпоративных автопарках, в том числе у государственных структур.
+                </div>
+            </div>
         </main>
     </div>
 
     <footer>
         &copy; Новая компания
     </footer>
-    <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const dropdownBtn = document.getElementById('dropdownBtn');
-    const dropdownMenu = document.getElementById('dropdownMenu');
-    
-    // Функция для закрытия меню
-    function closeDropdown() {
-        dropdownMenu.classList.remove('show');
-        dropdownBtn.classList.remove('active');
-    }
-    
-    // Функция для открытия меню
-    function openDropdown() {
-        dropdownMenu.classList.add('show');
-        dropdownBtn.classList.add('active');
-    }
-    
-    // Обработчик клика по кнопке
-    dropdownBtn.addEventListener('click', function(event) {
-        event.preventDefault(); // Предотвращаем переход по ссылке
-        event.stopPropagation(); // Останавливаем всплытие события
-        
-        // Если меню открыто - закрываем, если закрыто - открываем
-        if (dropdownMenu.classList.contains('show')) {
-            closeDropdown();
-        } else {
-            openDropdown();
-        }
-    });
-    
-    // Закрытие при клике вне меню
-    document.addEventListener('click', function(event) {
-        // Если клик был не по кнопке и не по меню
-        if (!dropdownBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
-            closeDropdown();
-        }
-    });
-    
-    // Закрытие при нажатии клавиши Escape
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            closeDropdown();
-        }
-    });
-    
-    // Предотвращаем закрытие при клике внутри меню (кроме кнопок вкладок)
-    dropdownMenu.addEventListener('click', function(event) {
-        event.stopPropagation();
-    });
 
-    // Функция для перехода на страницу с закрытием меню
-window.navigateTo = function(page) {
-    location.href = page;
-    closeDropdown();
-}
-});
-</script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropdownBtn = document.getElementById('dropdownBtn');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        
+        function closeDropdown() {
+            dropdownMenu.classList.remove('show');
+            dropdownBtn.classList.remove('active');
+        }
+        
+        function openDropdown() {
+            dropdownMenu.classList.add('show');
+            dropdownBtn.classList.add('active');
+        }
+        
+        dropdownBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            if (dropdownMenu.classList.contains('show')) {
+                closeDropdown();
+            } else {
+                openDropdown();
+            }
+        });
+        
+        document.addEventListener('click', function(event) {
+            if (!dropdownBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                closeDropdown();
+            }
+        });
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeDropdown();
+            }
+        });
+        
+        dropdownMenu.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+        
+        window.navigateTo = function(page) {
+            location.href = page;
+            closeDropdown();
+        }
+    });
+    </script>
 </body>
 </html>
