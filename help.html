@@ -1,1 +1,473 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Помощь - Связь с автором</title>
+    <style>
+        /* Временные стили для страницы ПОМОЩЬ */
+        .help-main {
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 180px);
+            padding: 10px 20px !important;
+            overflow: hidden;
+        }
 
+        /* Заголовок как на других страницах */
+        .help-main .page-title {
+            font-size: 48px;
+            margin: 5px 0 15px 0 !important;
+            text-align: center;
+            flex-shrink: 0;
+            color: #0039A6;
+        }
+
+        .help-container {
+            display: flex;
+            gap: 30px;
+            flex: 1;
+            min-height: 0;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 30px;
+            padding: 25px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.3);
+            overflow-y: auto;
+        }
+
+        /* Левая колонка с контактной информацией */
+        .help-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding-right: 20px;
+            border-right: 2px solid rgba(0,57,166,0.2);
+        }
+
+        .help-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: #0039A6;
+            margin-bottom: 10px;
+        }
+
+        .help-description {
+            font-family: 'Roboto Slab', serif;
+            font-size: 18px;
+            line-height: 1.7;
+            color: #222;
+            text-align: justify;
+            background: rgba(255,255,255,0.7);
+            padding: 20px;
+            border-radius: 20px;
+            border-left: 5px solid #D52B1E;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,57,166,0.2);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #0039A6, #D52B1E);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .contact-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            color: #222;
+        }
+
+        .contact-text strong {
+            color: #0039A6;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .contact-email {
+            font-family: 'Roboto Slab', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #D52B1E;
+            text-decoration: none;
+            border-bottom: 2px dashed #0039A6;
+            padding-bottom: 2px;
+        }
+
+        .contact-email:hover {
+            color: #0039A6;
+            border-bottom-color: #D52B1E;
+        }
+
+        /* Правая колонка с формой */
+        .help-form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .help-form h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: #D52B1E;
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #0039A6;
+        }
+
+        .form-input,
+        .form-textarea {
+            font-family: 'Roboto Slab', serif;
+            font-size: 16px;
+            padding: 12px 15px;
+            border: 2px solid rgba(0,57,166,0.3);
+            border-radius: 15px;
+            background: white;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            border-color: #D52B1E;
+            box-shadow: 0 0 0 3px rgba(213,43,30,0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-button {
+            background: linear-gradient(135deg, #0039A6, #D52B1E);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0,57,166,0.3);
+        }
+
+        .form-note {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 15px;
+            font-family: 'Roboto Slab', serif;
+            font-size: 16px;
+            text-align: center;
+            border: 2px solid #c3e6cb;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 900px) {
+            .help-main {
+                height: auto;
+                min-height: calc(100vh - 160px);
+                overflow-y: auto;
+            }
+
+            .help-container {
+                flex-direction: column;
+            }
+
+            .help-info {
+                border-right: none;
+                border-bottom: 2px solid rgba(0,57,166,0.2);
+                padding-right: 0;
+                padding-bottom: 20px;
+            }
+
+            .help-main .page-title {
+                font-size: 38px;
+            }
+
+            .help-info h2,
+            .help-form h2 {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .help-main .page-title {
+                font-size: 32px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-email {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <div class="header__left">
+                <a id="logo" href="index.html"><span class="pink">Сайт</span> <i>визитка</i></a>
+            </div>
+            <div class="header__right">
+                <nav class="main-nav">
+                    <ul class="nav-links">
+                        <li><a href="index.html" class="nav-link">ГЛАВНАЯ</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropbtn" id="dropdownBtn">КАТАЛОГ</a>
+                            <div class="dropdown-content" id="dropdownMenu">
+                                <div class="tab-container">
+                                    <button class="tab" onclick="navigateTo('putin.html')">ПРЕЗИДЕНТ</button>
+                                    <button class="tab" onclick="navigateTo('facts.html')">ИНТЕРЕСНЫЕ ФАКТЫ</button>
+                                    <button class="tab" onclick="navigateTo('auto_industry.html')">АВТОПРОМ</button>
+                                    <button class="tab" onclick="navigateTo('oreshnik.html')">ОРЕШНИК</button>
+                                    <button class="tab" onclick="navigateTo('help.html')">ПОМОЩЬ</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="help-main">
+            <!-- Заголовок по центру -->
+            <h1 class="page-title">ПОМОЩЬ</h1>
+            
+            <!-- Основной контейнер -->
+            <div class="help-container">
+                <!-- Левая колонка с информацией -->
+                <div class="help-info">
+                    <h2>Свяжитесь со мной</h2>
+                    
+                    <div class="help-description">
+                        Если у вас есть вопросы, предложения или вы просто хотите написать, заполните форму справа или используйте контактные данные ниже. Я обязательно отвечу вам в ближайшее время!
+                    </div>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-text">
+                                <strong>Электронная почта</strong>
+                                <a href="mailto:iv33924@gmail.com" class="contact-email">iv33924@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-text">
+                                <strong>Telegram</strong>
+                                <div>@iv33924</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">💬</div>
+                            <div class="contact-text">
+                                <strong>Время ответа</strong>
+                                <div>Обычно отвечаю в течение 24 часов</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Правая колонка с формой -->
+                <div class="help-form">
+                    <h2>Написать сообщение</h2>
+                    
+                    <!-- Сообщение об успешной отправке -->
+                    <div class="success-message" id="successMessage">
+                        Спасибо за сообщение! Я свяжусь с вами в ближайшее время.
+                    </div>
+                    
+                    <!-- Форма обратной связи -->
+                    <form id="contactForm" action="#" method="post">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Ваше имя</label>
+                                <input type="text" id="name" name="name" class="form-input" required placeholder="Введите ваше имя">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="form-label">Ваш email</label>
+                                <input type="email" id="email" name="email" class="form-input" required placeholder="example@mail.ru">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Тема сообщения</label>
+                            <input type="text" id="subject" name="subject" class="form-input" required placeholder="О чём вы хотите написать?">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Сообщение</label>
+                            <textarea id="message" name="message" class="form-textarea" required placeholder="Введите ваше сообщение..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="form-button">Отправить сообщение</button>
+                        
+                        <div class="form-note">
+                            Нажимая кнопку, вы соглашаетесь на обработку персональных данных
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        &copy; Новая компания
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Код для выпадающего меню
+        const dropdownBtn = document.getElementById('dropdownBtn');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        
+        function closeDropdown() {
+            dropdownMenu.classList.remove('show');
+            dropdownBtn.classList.remove('active');
+        }
+        
+        function openDropdown() {
+            dropdownMenu.classList.add('show');
+            dropdownBtn.classList.add('active');
+        }
+        
+        if (dropdownBtn) {
+            dropdownBtn.addEventListener('click', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                
+                if (dropdownMenu.classList.contains('show')) {
+                    closeDropdown();
+                } else {
+                    openDropdown();
+                }
+            });
+        }
+        
+        document.addEventListener('click', function(event) {
+            if (dropdownBtn && !dropdownBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                closeDropdown();
+            }
+        });
+        
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeDropdown();
+            }
+        });
+        
+        if (dropdownMenu) {
+            dropdownMenu.addEventListener('click', function(event) {
+                event.stopPropagation();
+            });
+        }
+        
+        window.navigateTo = function(page) {
+            location.href = page;
+            closeDropdown();
+        }
+        
+        // Код для формы обратной связи
+        const contactForm = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Предотвращаем реальную отправку формы
+                
+                // Здесь можно добавить код для отправки данных на сервер
+                // Например, через fetch API
+                
+                // Показываем сообщение об успехе
+                successMessage.classList.add('show');
+                
+                // Очищаем форму
+                contactForm.reset();
+                
+                // Скрываем сообщение через 5 секунд
+                setTimeout(function() {
+                    successMessage.classList.remove('show');
+                }, 5000);
+            });
+        }
+    });
+    </script>
+</body>
+</html>
