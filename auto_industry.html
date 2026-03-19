@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LADA - Российский автопром</title>
     <style>
-        /* Временные стили для страницы LADA */
+        /* Временные стили для страницы LADA - без анимаций */
         .lada-main {
             display: flex;
             flex-direction: column;
@@ -72,7 +72,7 @@
         .lada-description {
             flex: 1;
             font-family: 'Roboto Slab', serif;
-            font-size: 16px;
+            font-size: 18px;
             line-height: 1.6;
             color: #222;
             text-align: justify;
@@ -114,15 +114,10 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
             border: 1px solid rgba(0,57,166,0.2);
             display: flex;
             flex-direction: column;
-        }
-
-        .model-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,57,166,0.3);
+            /* Анимация удалена */
         }
 
         .model-image {
@@ -150,7 +145,7 @@
 
         .model-desc {
             font-family: 'Roboto Slab', serif;
-            font-size: 14px;
+            font-size: 15px;
             color: #444;
             line-height: 1.5;
             text-align: justify;
@@ -195,12 +190,7 @@
             text-align: center;
             box-shadow: 0 5px 10px rgba(0,0,0,0.05);
             border-left: 3px solid #0039A6;
-            transition: all 0.3s ease;
-        }
-
-        .advantage-item:hover {
-            transform: scale(1.03);
-            border-left-color: #D52B1E;
+            /* Анимация удалена */
         }
 
         .advantage-icon {
@@ -210,7 +200,7 @@
 
         .advantage-text {
             font-family: 'Montserrat', sans-serif;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 500;
             color: #222;
             line-height: 1.4;
@@ -219,7 +209,7 @@
         /* Нижний блок с заключением */
         .lada-footer {
             font-family: 'Roboto Slab', serif;
-            font-size: 16px;
+            font-size: 18px;
             line-height: 1.6;
             color: #222;
             text-align: justify;
@@ -242,6 +232,14 @@
             
             .advantages-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .lada-description {
+                font-size: 17px;
+            }
+            
+            .lada-footer {
+                font-size: 17px;
             }
         }
 
@@ -279,6 +277,14 @@
             
             .models-title {
                 font-size: 24px;
+            }
+            
+            .lada-description {
+                font-size: 16px;
+            }
+            
+            .lada-footer {
+                font-size: 16px;
             }
         }
     </style>
